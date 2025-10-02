@@ -15,6 +15,8 @@ function App(): ReactElement {
       <h1 className="text-4xl font-bold">Hello to CarSharing</h1>
       <p>If you can read this, you have successfully started the base frontend repository!</p>
       <p>Happy coding!</p>
+      <button className="btn btn-primary">Click me</button>
+      <button className="btn btn-outline">Click me</button>
     </main>
   )
 }
