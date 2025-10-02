@@ -7,12 +7,16 @@ import CarsIcon from '../assets/CarsIcon'
 import ListIcon from '../assets/ListIcon'
 import PlusIcon from '../assets/PlusIcon'
 import LogoutIcon from '../assets/LogoutIcon'
+import { useNavigate } from 'react-router-dom'
 
 interface NavbarProps {
   className?: string
 }
 
+// eslint-disable-next-line max-lines-per-function
 export default function Navbar({ className }: NavbarProps): ReactElement {
+  const navigate = useNavigate()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -51,20 +55,32 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
 
         {/* Sidebar */}
         <div
-          className={`max-h-sm absolute left-5 top-20 w-80 max-w-[85vw] bg-background shadow-xl transition-transform duration-300 ${
+          className={`max-h-sm bg-background absolute left-5 top-20 w-80 max-w-[85vw] shadow-xl transition-transform duration-300 ${
             isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
           {/* Menu Items */}
           <div className="space-y-1 p-4">
             {/* Book A Car */}
-            <button className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]">
+            <button
+              onClick={() => {
+                navigate('/create-booking')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
+            >
               <CarIcon className="h-5 w-5" />
               <span className="text-sm font-medium">Book A Car</span>
             </button>
 
             {/* My Bookings */}
-            <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white hover:bg-[#2d5278]">
+            <button
+              onClick={() => {
+                navigate('/user-bookings')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white hover:bg-[#2d5278]"
+            >
               <CalendarIcon className="text-white" />
               <span className="text-sm font-medium">My Bookings</span>
             </button>
@@ -78,19 +94,37 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
             </div>
 
             {/* See My Cars */}
-            <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]">
+            <button
+              onClick={() => {
+                navigate('/car-details')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
+            >
               <CarsIcon />
               <span className="text-sm font-medium">See My Cars</span>
             </button>
 
             {/* My Car's Bookings */}
-            <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]">
+            <button
+              onClick={() => {
+                navigate('/booking-management')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
+            >
               <ListIcon />
               <span className="text-sm font-medium">My Car&apos;s Bookings</span>
             </button>
 
             {/* Add New Car */}
-            <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]">
+            <button
+              onClick={() => {
+                navigate('/add-car')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
+            >
               <PlusIcon className="h-5 w-5" />
               <span className="text-sm font-medium">Add New Car</span>
             </button>

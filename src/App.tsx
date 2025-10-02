@@ -8,7 +8,7 @@ import CarDetails from './Components/CarDetails '
 import UserBookings from './Components/UserBookings '
 import CreateBooking from './Components/CreateBooking '
 import Navbar from './Components/NavBar'
-//import ErrorPage from './Components/ErrorPage '
+import ErrorPage from './Components/ErrorPage'
 
 // Configure axios hooks
 configure({
@@ -28,7 +28,7 @@ function App(): ReactElement {
         <Route path="/car-details" element={<CarDetails />} />
         <Route path="/user-bookings" element={<UserBookings />} />
         <Route path="/create-booking" element={<CreateBooking />} />
-        {/* <Route path="*" element={<ErrorPage />} /> */}
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
   )
