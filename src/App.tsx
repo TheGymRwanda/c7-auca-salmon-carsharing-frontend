@@ -1,8 +1,16 @@
 import { ReactElement } from 'react'
 import { configure } from 'axios-hooks'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import HomePage from './Components/HomePage '
+import AddCar from './Components/AddCar '
+import BookingManagement from './Components/BookingManagement '
+import CarDetails from './Components/CarDetails '
+import UserBookings from './Components/UserBookings '
+import CreateBooking from './Components/CreateBooking '
+import ErrorPage from './Components/ErrorPage '
 
 // Configure axios hooks
-// Do not delete this if you want to use the provided API hooks in `src/hooks`
 configure({
   defaultOptions: {
     autoCancel: false,
@@ -11,13 +19,17 @@ configure({
 
 function App(): ReactElement {
   return (
-    <main className="mx-auto flex min-h-screen w-1/3 flex-col gap-8 py-10">
-      <h1 className="text-4xl font-bold">Hello to CarSharing</h1>
-      <p>If you can read this, you have successfully started the base frontend repository!</p>
-      <p>Happy coding!</p>
-      <button className="btn btn-primary">Click me</button>
-      <button className="btn btn-outline">Click me</button>
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/add-car" element={<AddCar />} />
+        <Route path="/booking-management" element={<BookingManagement />} />
+        <Route path="/car-details" element={<CarDetails />} />
+        <Route path="/user-bookings" element={<UserBookings />} />
+        <Route path="/create-booking" element={<CreateBooking />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
   )
 }
 
