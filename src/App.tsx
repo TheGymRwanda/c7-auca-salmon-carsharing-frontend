@@ -2,13 +2,13 @@ import { ReactElement } from 'react'
 import { configure } from 'axios-hooks'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import HomePage from './Components/HomePage '
 import AddCar from './Components/AddCar '
 import BookingManagement from './Components/BookingManagement '
 import CarDetails from './Components/CarDetails '
 import UserBookings from './Components/UserBookings '
 import CreateBooking from './Components/CreateBooking '
 import ErrorPage from './Components/ErrorPage '
+import HomePage from './Components/HomePage '
 
 // Configure axios hooks
 configure({
