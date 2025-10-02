@@ -7,6 +7,7 @@ import BookingManagement from './Components/BookingManagement '
 import CarDetails from './Components/CarDetails '
 import UserBookings from './Components/UserBookings '
 import CreateBooking from './Components/CreateBooking '
+import Navbar from './Components/NavBar'
 //import ErrorPage from './Components/ErrorPage '
 
 // Configure axios hooks
@@ -19,6 +20,7 @@ configure({
 function App(): ReactElement {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/add-car" element={<AddCar />} />
