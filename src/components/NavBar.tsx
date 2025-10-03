@@ -26,7 +26,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
   return (
     <>
       <nav
-        className={`relative flex h-[56px] items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
+        className={`relative mb-24 flex h-[56px] items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
       >
         {/* Left - Menu Button */}
         <button onClick={toggleMenu} className="text-sm text-gray-300 md:cursor-default">
@@ -36,7 +36,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
         {/* Center - Car Icon inside circular cutout */}
         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
           <div className="rounded-full bg-[#0F172A] p-6 shadow-lg">
-            <Logo className="h-8 w-8 text-white" />
+            <Logo onClick={() => navigate('/')} className="h-8 w-8 text-white" />
           </div>
         </div>
 
@@ -55,7 +55,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
 
         {/* Sidebar */}
         <div
-          className={`max-h-sm bg-background absolute left-5 top-20 w-80 max-w-[85vw] shadow-xl transition-transform duration-300 ${
+          className={`max-h-sm absolute left-5 top-20 w-80 max-w-[85vw] bg-background shadow-xl transition-transform duration-300 ${
             isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
