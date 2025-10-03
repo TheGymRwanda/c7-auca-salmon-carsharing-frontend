@@ -8,6 +8,7 @@ import ListIcon from '../assets/ListIcon'
 import PlusIcon from '../assets/PlusIcon'
 import LogoutIcon from '../assets/LogoutIcon'
 import { useNavigate } from 'react-router-dom'
+import CarPlusIcon from '../assets/CarPlusIcon'
 
 interface NavbarProps {
   className?: string
@@ -26,7 +27,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
   return (
     <>
       <nav
-        className={`relative mb-24 flex h-[56px] items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
+        className={`fixed top-0 left-0 z-50 w-full h-[56px] flex items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
       >
         {/* Left - Menu Button */}
         <button onClick={toggleMenu} className="text-sm text-gray-300 md:cursor-default">
@@ -61,13 +62,25 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
         >
           {/* Menu Items */}
           <div className="space-y-1 p-4">
+            {/* Show all cars */}
+            <button
+              onClick={() => {
+                navigate('/show-all-cars')
+                closeMenu() // optionally close sidebar after navigation
+              }}
+              className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
+            >
+              <CarPlusIcon className="h-5 w-5" />
+              <span className="text-sm font-medium">Show All Car</span>
+            </button>
+
             {/* Book A Car */}
             <button
               onClick={() => {
                 navigate('/create-booking')
                 closeMenu() // optionally close sidebar after navigation
               }}
-              className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
             >
               <CarIcon className="h-5 w-5" />
               <span className="text-sm font-medium">Book A Car</span>
