@@ -15,12 +15,12 @@ function ShowAllCar() {
   ]
 
   return (
-    <div className="mt-[100px] max-w-sm md:max-w-none md:flex md:flex-col items-center">
-      <div className="flex items-center justify-start m-6 w-[356px] h-[36px] gap-24 md:gap-40 top-[100px] left-[17px]">
+    <div className="mt-[100px] max-w-sm items-center md:flex md:max-w-none md:flex-col">
+      <div className="left-[17px] top-[100px] m-6 flex h-[36px] w-[356px] items-center justify-start gap-24 md:gap-40">
         <button onClick={() => navigate(-1)}>
           <BackIcon />
         </button>
-        <h1 className="text-[30px] md:text-2xl font-serif font-bold tracking-widest">ALL CARS</h1>
+        <h1 className="font-serif text-[30px] font-bold tracking-widest md:text-2xl">ALL CARS</h1>
       </div>
 
       {/* Car list */}

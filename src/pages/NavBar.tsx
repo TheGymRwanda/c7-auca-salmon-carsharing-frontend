@@ -27,7 +27,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 z-50 w-full h-[56px] flex items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
+        className={`fixed left-0 top-0 z-50 flex h-[56px] w-full items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
       >
         {/* Left - Menu Button */}
         <button onClick={toggleMenu} className="text-sm text-gray-300 md:cursor-default">
