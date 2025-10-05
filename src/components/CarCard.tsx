@@ -12,15 +12,16 @@ interface CarDetails {
 function CarCard({ name, owner, type, picture }: CarDetails) {
   return (
     <>
-      <div className=" left-[17px] top-[168px] m-5 h-[220px] w-[90vw] rounded-lg bg-[#3E7591]/70 px-[30px] py-[16px] shadow md:w-[700px]">
-        <div className="flex h-[188px] w-full items-center justify-between gap-1 p-3 md:w-[650px]">
+      <div className="m-3 h-[250px] max-w-md rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
+        <div className="flex h-[188px] items-center justify-center gap-5 md:w-[650px]">
           {/* Showing the image */}
 
-          <InteractiveCarImage src={picture} alt={name} />
-
+          <div>
+            <InteractiveCarImage src={picture} alt={name} />
+          </div>
           {/* Show details with icons */}
-          <div className="flex h-[188px] w-[118px] flex-col gap-[32px] ">
-            <div className=" flex h-[136px] w-[118px] flex-col gap-[16px]">
+          <div className=" flex h-[188px] w-[118px] flex-col gap-[30px]">
+            <div className="flex h-[136px] w-[118px] flex-col gap-[10px]">
               <div className="flex h-[56px] w-[118px] items-center gap-2 space-y-5 text-[20px] tracking-normal">
                 <span className="align-middle  font-serif font-medium">{name}</span>
               </div>
