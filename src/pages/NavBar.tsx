@@ -44,6 +44,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
         {/* Right - Profile Icon */}
         <ProfileIcon className="h-5 w-5" />
       </nav>
+      <div className="h-[96px]"></div>
 
       {/* Mobile Sidebar Menu */}
       <div
