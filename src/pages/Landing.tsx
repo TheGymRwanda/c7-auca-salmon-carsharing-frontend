@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
+import LoginNavbar from './LoginNavbar'
 function LandingPage() {
   const navigate = useNavigate()
   return (
-    <div className=" ">
+    <div className="">
+      <LoginNavbar />
       <div className="mt-[90px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
-        <div className="mb-24  flex flex-col items-center gap-1">
+        <div className="mb-14  flex flex-col items-center gap-1">
           <h1 className="text-5xl font-bold">MONI</h1>
           <h1 className="text-5xl italic">share</h1>
         </div>
