@@ -40,7 +40,17 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
         {/* Center - Car Icon inside circular cutout */}
         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
           <div className="rounded-full bg-[#0F172A] p-6 shadow-lg">
-            <Logo onClick={() => navigate('/')} className="h-8 w-8 text-white" />
+            <Logo
+              onClick={() => {
+                const token = localStorage.getItem('token')
+                if (token) {
+                  navigate('/home')
+                } else {
+                  navigate('/')
+                }
+              }}
+              className="h-8 w-8 text-white"
+            />
           </div>
         </div>
 
@@ -69,7 +79,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/show-all-cars')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
             >
@@ -81,7 +91,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/create-booking')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
             >
@@ -93,7 +103,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/user-bookings')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white hover:bg-[#2d5278]"
             >
@@ -113,7 +123,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/own-car')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
             >
@@ -125,7 +135,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/booking-management')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
             >
@@ -137,7 +147,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <button
               onClick={() => {
                 navigate('/add-car')
-                closeMenu() // optionally close sidebar after navigation
+                closeMenu()
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
             >
@@ -149,7 +159,15 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
             <div className="my-4 border-t border-gray-100" />
 
             {/* Log Out */}
-            <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]">
+            <button
+              onClick={() => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('userId')
+                navigate('/login')
+                closeMenu()
+              }}
+              className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
+            >
               <LogoutIcon />
               <span className="text-sm font-medium">Log Out</span>
             </button>

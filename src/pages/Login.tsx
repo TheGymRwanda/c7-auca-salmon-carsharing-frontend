@@ -1,12 +1,43 @@
 import { useNavigate } from 'react-router-dom'
 import { FaUser, FaKey } from 'react-icons/fa'
 import Navbar from './NavBar'
+import { useState } from 'react'
+import { apiUrl } from '../util/apiUrl'
+import axios from 'axios'
+
 function Login() {
   const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError(null)
+
+    try {
+      const response = await axios.post(`${apiUrl}/auth`, {
+        username,
+        password,
+      })
+
+      const { token, userId } = response.data
+      localStorage.setItem('token', token)
+      localStorage.setItem('userId', userId)
+
+      navigate('/home')
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        setError(err.response?.data?.message || 'Invalid credentials')
+      } else {
+        setError('Invalid credentials')
+      }
+    }
+  }
+
   return (
     <div>
       <Navbar profileMenuView={false} />
-
       <div className="flex min-h-screen flex-col items-center justify-center bg-[#2B5265] font-serif">
         {/* Logo */}
         <div className="mb-16 flex flex-col items-center">
@@ -19,33 +50,40 @@ function Login() {
           <h1 className="text-lg font-medium text-white">Log in</h1>
         </div>
 
-        {/* Inputs */}
-        <div className="mb-6 flex w-full max-w-xs flex-col gap-4">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="mb-6 flex w-full max-w-xs flex-col gap-4">
           <div className="relative">
-            <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 " />
+            <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
             <input
+              value={username}
+              onChange={e => setUsername(e.target.value)}
               className="w-full rounded-full bg-[#64A1C0] px-12 py-3 text-center text-white placeholder:text-white focus:outline-none"
               type="text"
               placeholder="Username / e-mail"
             />
           </div>
           <div className="relative">
-            <FaKey className="absolute left-4 top-1/2 -translate-y-1/2 " />
+            <FaKey className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
             <input
+              value={password}
+              onChange={e => setPassword(e.target.value)}
               className="w-full rounded-full bg-[#64A1C0] px-12 py-3 text-center text-white placeholder:text-white focus:outline-none"
               type="password"
               placeholder="Password"
             />
           </div>
-        </div>
 
-        {/* Button */}
-        <button
-          onClick={() => navigate('/Login')}
-          className="mt-6 w-full max-w-xs rounded-full bg-white py-3 font-bold text-[#64A1C0] transition hover:bg-gray-100"
-        >
-          Log In
-        </button>
+          {/* Error message */}
+          {error && <p className="text-center text-red-400">{error}</p>}
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="mt-6 w-full rounded-full bg-white py-3 font-bold text-[#64A1C0] transition hover:bg-gray-100"
+          >
+            Log In
+          </button>
+        </form>
       </div>
     </div>
   )

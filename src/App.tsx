@@ -39,7 +39,7 @@ function AppContent(): ReactElement {
 }
 
 function App(): ReactElement {
-  return <AppContent /> // ✅ no extra <Router>
+  return <AppContent />
 }
 
 export default App

@@ -1,37 +1,54 @@
 import { useNavigate } from 'react-router-dom'
 import BackIcon from '../assets/BackIcon'
-import MoniCL from '../public/images/MONICL 1.png'
-import CarGreen from '../public/images/Car-green.png'
-import CarBlack from '../public/images/Car-Black.png'
 import CarCard from '../components/CarCard'
+import useCars from '../hooks/useCars'
+import useCarTypes from '../hooks/useCarTypes'
+import useUser from '../hooks/useUser'
 
 function ShowAllCar() {
   const navigate = useNavigate()
+  const [{ data: cars, loading: loadingCars, error: errorCars }] = useCars()
+  const [{ data: carTypes, loading: loadingTypes, error: errorTypes }] = useCarTypes()
+  const [{ data: owner }] = useUser(cars?.[0]?.ownerId ?? 0)
 
-  const Cars = [
-    { name: 'Mighty Mouse', owner: 'Manuela', type: 'Moni Cooper', picture: MoniCL },
-    { name: 'Tini Titan', owner: 'Anna', type: 'Countryman', picture: CarGreen },
-    { name: 'Petite Powerhouse', owner: 'Manuela', type: 'Moni Electric', picture: CarBlack },
-  ]
+  const getCarOwnerName = (ownerId: number): string => owner?.name ?? `Owner ID: ${ownerId}`
+
+  const getCarTypeName = (carTypeId: number): string => {
+    const type = carTypes?.find(t => t.id === carTypeId)
+    return type ? type.name : 'Unknown Type'
+  }
+
+  const getCarImage = (carTypeId: number): string => {
+    const type = carTypes?.find(t => t.id === carTypeId)
+    return type?.imageUrl ?? ''
+  }
+
+  if (loadingCars || loadingTypes)
+    return <div className="mt-[150px] text-center">Loading cars...</div>
+  if (errorCars || errorTypes)
+    return (
+      <div className="mt-[150px] text-center text-red-500">
+        Failed to load cars. Please try again later.
+      </div>
+    )
 
   return (
-    <div className="mt-[100px] max-w-sm items-center md:flex md:max-w-none md:flex-col">
+    <div className="mt-[100px] items-center md:flex md:max-w-none md:flex-col">
       <div className="left-[17px] top-[100px] m-6 flex h-[36px] w-[356px] items-center justify-start gap-24 md:gap-40">
-        <button onClick={() => navigate('/')}>
+        <button onClick={() => navigate('/home')}>
           <BackIcon />
         </button>
         <h1 className="font-serif text-[30px] font-bold tracking-widest md:text-2xl">ALL CARS</h1>
       </div>
 
-      {/* Car list */}
       <div>
-        {Cars.map((car, index) => (
+        {cars?.map(car => (
           <CarCard
-            key={index}
+            key={car.id}
             name={car.name}
-            owner={car.owner}
-            type={car.type}
-            picture={car.picture}
+            owner={getCarOwnerName(car.ownerId)}
+            type={getCarTypeName(car.carTypeId)}
+            picture={getCarImage(car.carTypeId)}
           />
         ))}
       </div>
