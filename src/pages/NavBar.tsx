@@ -109,7 +109,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
             {/* See My Cars */}
             <button
               onClick={() => {
-                navigate('/car-details')
+                navigate('/own-car')
                 closeMenu() // optionally close sidebar after navigation
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
