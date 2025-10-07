@@ -17,7 +17,7 @@ function CarCard({ name, owner, type, picture }: CarDetailsType) {
   }
   return (
     <>
-      <div className="m-3 h-[250px] max-w-md rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
+      <div className="m-3 flex h-[250px] max-w-md items-center justify-center rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
         <div className="flex h-[188px] items-center justify-center gap-5 md:w-[650px]">
           {/* Showing the image */}
 
