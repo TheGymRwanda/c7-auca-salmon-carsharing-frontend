@@ -5,6 +5,7 @@ import Navbar from './pages/NavBar'
 import HomePage from './pages/HomePage'
 import AddCar from './pages/AddCar '
 import BookingManagement from './pages/BookingManagement '
+import OwnCar from './pages/OwnCar'
 import CarDetails from './pages/CarDetails '
 import UserBookings from './pages/UserBookings '
 import CreateBooking from './pages/CreateBooking '
@@ -26,7 +27,8 @@ function App(): ReactElement {
         <Route path="/" element={<HomePage />} />
         <Route path="/add-car" element={<AddCar />} />
         <Route path="/booking-management" element={<BookingManagement />} />
-        <Route path="/car-details" element={<CarDetails />} />
+        <Route path="/own-car" element={<OwnCar />} />
+        <Route path="/car-details/:carName" element={<CarDetails />} />
         <Route path="/user-bookings" element={<UserBookings />} />
         <Route path="/create-booking" element={<CreateBooking />} />
         <Route path="/show-all-cars" element={<ShowAllCar />} />
