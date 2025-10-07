@@ -34,7 +34,7 @@ function CarDetails() {
           </h1>
         </div>
         <div>
-          <div className="h-[200px] w-full flex justify-center my-8">
+          <div className="h-[200px] w-full flex justify-center mt-8">
             <img className="w-[95%] h-full object-contain" src={Car.image}></img>
           </div>
           <div>
