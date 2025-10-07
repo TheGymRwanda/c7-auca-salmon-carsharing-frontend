@@ -6,6 +6,10 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: '/',
   plugins: [react()],
+  server: {
+    allowedHosts: ['.ngrok-free.dev'],
+  },
+  // @ts-expect-error: Vitest test config not recognized by Vite types
   test: {
     globals: true,
     environment: 'jsdom',
