@@ -1,15 +1,20 @@
+import { useNavigate } from 'react-router-dom'
 import CarIcon from '../assets/CarIcon'
 import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
 
-interface CarDetails {
+interface CarDetailsType {
   name: string
   owner: string
   type: string
   picture: string
 }
 
-function CarCard({ name, owner, type, picture }: CarDetails) {
+function CarCard({ name, owner, type, picture }: CarDetailsType) {
+  const navigate = useNavigate()
+  const goToCarDetails = () => {
+    navigate(`/car-details/${name}`)
+  }
   return (
     <>
       <div className="m-3 h-[250px] max-w-md rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
@@ -37,7 +42,10 @@ function CarCard({ name, owner, type, picture }: CarDetails) {
               </div>
             </div>
             <div className="-mt-3 mr-20 flex h-[20px] w-[88px] justify-end text-yellow-200">
-              <button className="text-center align-middle text-[14px] font-bold">
+              <button
+                className="text-center align-middle text-[14px] font-bold"
+                onClick={goToCarDetails}
+              >
                 Show details
               </button>
             </div>

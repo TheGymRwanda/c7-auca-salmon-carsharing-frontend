@@ -1,15 +1,15 @@
 function HomePage() {
   return (
     <div className=" ">
-      <div className="mt-[90px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
+      <div className="mt-[200px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
         <div className="mb-10 flex flex-col items-center gap-1">
           <h1 className="text-5xl font-bold">MONI</h1>
           <h1 className="text-5xl italic">share</h1>
         </div>
 
-        <div className="text-center  font-medium">
-          <p className="text-lg">Hello Manuela!</p>
-          <p className="text-lg">What are you up to today?</p>
+        <div className="text-center font-medium  text-gray-200">
+          <p className="text-xl">Hello Manuela!</p>
+          <p className="text-xl">What are you up to today?</p>
         </div>
       </div>
 

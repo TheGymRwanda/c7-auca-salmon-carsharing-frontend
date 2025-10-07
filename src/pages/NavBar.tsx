@@ -12,10 +12,11 @@ import CarPlusIcon from '../assets/CarPlusIcon'
 
 interface NavbarProps {
   className?: string
+  profileMenuView?: boolean
 }
 
 // eslint-disable-next-line max-lines-per-function
-export default function Navbar({ className }: NavbarProps): ReactElement {
+export default function Navbar({ className, profileMenuView = true }: NavbarProps): ReactElement {
   const navigate = useNavigate()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -30,9 +31,11 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
         className={`fixed left-0 top-0 z-50 flex h-[56px] w-full items-center justify-between rounded-b-xl bg-[#0F172A] px-4 text-white shadow ${className}`}
       >
         {/* Left - Menu Button */}
-        <button onClick={toggleMenu} className="text-sm text-gray-300 md:cursor-default">
-          {isMenuOpen ? 'Close' : 'Menu'}
-        </button>
+        {profileMenuView && (
+          <button onClick={toggleMenu} className="text-sm text-gray-300 md:cursor-default">
+            {isMenuOpen ? 'Close' : 'Menu'}
+          </button>
+        )}
 
         {/* Center - Car Icon inside circular cutout */}
         <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
@@ -42,9 +45,8 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
         </div>
 
         {/* Right - Profile Icon */}
-        <ProfileIcon className="h-5 w-5" />
+        {profileMenuView && <ProfileIcon className="h-5 w-5" />}
       </nav>
-      <div className="h-[96px]"></div>
 
       {/* Mobile Sidebar Menu */}
       <div
@@ -110,7 +112,7 @@ export default function Navbar({ className }: NavbarProps): ReactElement {
             {/* See My Cars */}
             <button
               onClick={() => {
-                navigate('/car-details')
+                navigate('/own-car')
                 closeMenu() // optionally close sidebar after navigation
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
