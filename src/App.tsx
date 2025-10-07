@@ -10,18 +10,27 @@ import UserBookings from './pages/UserBookings '
 import CreateBooking from './pages/CreateBooking '
 import ErrorPage from './pages/ErrorPage'
 import ShowAllCar from './pages/ShowAllCar'
-
-// Configure axios hooks
+import LandingPage from './pages/Landing'
+import Login from './pages/Login'
+import { useLocation } from 'react-router-dom'
+// Axios hooks configuration
 configure({
   defaultOptions: {
     autoCancel: false,
   },
 })
 
-function App(): ReactElement {
+function AppContent(): ReactElement {
+  const location = useLocation()
+
+  // Hide navbar on these routes
+  const hideNavbarRoutes = ['/login', '/landingpage']
+
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname.toLowerCase())
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {!shouldHideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/add-car" element={<AddCar />} />
@@ -30,9 +39,18 @@ function App(): ReactElement {
         <Route path="/user-bookings" element={<UserBookings />} />
         <Route path="/create-booking" element={<CreateBooking />} />
         <Route path="/show-all-cars" element={<ShowAllCar />} />
-
+        <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+    </>
+  )
+}
+
+function App(): ReactElement {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   )
 }
