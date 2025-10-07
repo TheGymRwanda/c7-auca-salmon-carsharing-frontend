@@ -29,39 +29,39 @@ function CarDetails() {
           <button className="absolute" onClick={() => navigate('/show-all-cars')}>
             <BackIcon />
           </button>
-          <h1 className="text-[30px] font-bold tracking-widest md:text-2xl text-center w-full">
+          <h1 className="w-full text-center text-[30px] font-bold tracking-widest md:text-2xl">
             DETAILS
           </h1>
         </div>
         <div>
-          <div className="h-[200px] w-full flex justify-center mt-8">
-            <img className="w-[95%] h-full object-contain" src={Car.image}></img>
+          <div className="mt-8 flex h-[200px] w-full justify-center">
+            <img className="h-full w-[95%] object-contain" src={Car.image}></img>
           </div>
           <div>
             <h1 className="text-xl">{Car.name}</h1>
           </div>
           <div className="my-8">
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <ProfileIcon />
               <span className="ml-2">{Car.owner}</span>
             </h2>
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <CarIcon />
               <span className="ml-2">{Car.type}</span>
             </h2>
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <img src={LicensePlate} alt="license plate svg" />
               <span className="ml-2">{Car.licensePlate}</span>
             </h2>
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <HorseIcon />
               <span className="ml-2">{Car.horsepower}</span>
             </h2>
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <FuelIcon />
               <span className="ml-2">{Car.fuelType}</span>
             </h2>
-            <h2 className="flex mb-1">
+            <h2 className="mb-1 flex">
               <img src={Icon} alt="license plate svg" />
               <span className="ml-2">{Car.additionalInfo}</span>
             </h2>
