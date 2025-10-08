@@ -10,14 +10,14 @@ interface CarDetailsType {
   picture: string
 }
 
-function CarCard({ name, owner, type, picture }: CarDetailsType) {
+function OwnCard({ name, owner, type, picture }: CarDetailsType) {
   const navigate = useNavigate()
   const goToCarDetails = () => {
-    navigate(`/car-details/${name}`)
+    navigate(`/car-details:/${name}`)
   }
   return (
     <>
-      <div className="m-3 flex h-[250px] max-w-md items-center justify-center rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
+      <div className="m-3 flex flex-col h-[250px] max-w-md items-center justify-center rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
         <div className="flex h-[188px] items-center justify-center gap-5 md:w-[650px]">
           {/* Showing the image */}
 
@@ -32,12 +32,12 @@ function CarCard({ name, owner, type, picture }: CarDetailsType) {
               </div>
 
               <div className="flex h-[24px] w-[89px] items-center gap-2">
-                <ProfileIcon className="size-5" />
+                <ProfileIcon className="h-5 w-5" />
                 <span>{owner}</span>
               </div>
 
               <div className="flex h-[24px] w-[118px] items-center gap-2 ">
-                <CarIcon className="size-6" />
+                <CarIcon className="h-6 w-6" />
                 <span>{type}</span>
               </div>
             </div>
@@ -51,8 +51,11 @@ function CarCard({ name, owner, type, picture }: CarDetailsType) {
             </div>
           </div>
         </div>
+        <div>
+          <button className=" btn-outline2 w-[300px]">Delete</button>
+        </div>
       </div>
     </>
   )
 }
-export default CarCard
+export default OwnCard
