@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom'
-import { FaUser, FaKey } from 'react-icons/fa'
 import Navbar from './NavBar'
 import { useState } from 'react'
 import { apiUrl } from '../util/apiUrl'
 import axios from 'axios'
+import ProfileIcon from '../assets/ProfileIcon'
+import LockIcon from '../assets/LockIcon'
 
 function Login() {
   const navigate = useNavigate()
@@ -53,7 +54,7 @@ function Login() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="mb-6 flex w-full max-w-xs flex-col gap-4">
           <div className="relative">
-            <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
+            <ProfileIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
             <input
               value={username}
               onChange={e => setUsername(e.target.value)}
@@ -63,7 +64,7 @@ function Login() {
             />
           </div>
           <div className="relative">
-            <FaKey className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
+            <LockIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-white" />
             <input
               value={password}
               onChange={e => setPassword(e.target.value)}

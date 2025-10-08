@@ -49,13 +49,13 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
                   navigate('/')
                 }
               }}
-              className="h-8 w-8 text-white"
+              className="size-8 text-white"
             />
           </div>
         </div>
 
         {/* Right - Profile Icon */}
-        {profileMenuView && <ProfileIcon className="h-5 w-5" />}
+        {profileMenuView && <ProfileIcon className="size-5" />}
       </nav>
 
       {/* Mobile Sidebar Menu */}
@@ -83,7 +83,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
               }}
               className="flex w-full items-center gap-3 rounded-lg bg-[#2d5278] px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
             >
-              <CarPlusIcon className="h-5 w-5" />
+              <CarPlusIcon className="size-5" />
               <span className="text-sm font-medium">Show All Car</span>
             </button>
 
@@ -95,7 +95,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#35607d]"
             >
-              <CarIcon className="h-5 w-5" />
+              <CarIcon className="size-5" />
               <span className="text-sm font-medium">Book A Car</span>
             </button>
 
@@ -151,7 +151,7 @@ export default function Navbar({ className, profileMenuView = true }: NavbarProp
               }}
               className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-[#2d5278]"
             >
-              <PlusIcon className="h-5 w-5" />
+              <PlusIcon className="size-5" />
               <span className="text-sm font-medium">Add New Car</span>
             </button>
 
