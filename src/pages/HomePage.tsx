@@ -1,0 +1,35 @@
+import { useNavigate } from 'react-router-dom'
+
+function HomePage() {
+  const navigate = useNavigate()
+  return (
+    <div className=" ">
+      <div className="mt-[200px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
+        <div className="mb-10 flex flex-col items-center gap-1">
+          <h1 className="text-5xl font-bold">MONI</h1>
+          <h1 className="text-5xl italic">share</h1>
+        </div>
+
+        <div className="text-center font-medium  text-gray-200">
+          <p className="text-xl">Hello Manuela!</p>
+          <p className="text-xl">What are you up to today?</p>
+        </div>
+      </div>
+
+      <div className="flex flex-col items-center md:justify-center  ">
+        <div className="  flex w-full max-w-xs flex-col items-center gap-6 ">
+          <button className="btn btn-primary  mt-20 md:mt-0">Book Car</button>
+          <p>or</p>
+          <button onClick={() => navigate('/own-car')} className="btn btn-outline">
+            See my Cars
+          </button>
+          <button onClick={() => navigate('/user-bookings')} className="btn btn-outline">
+            See my Bookings
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default HomePage

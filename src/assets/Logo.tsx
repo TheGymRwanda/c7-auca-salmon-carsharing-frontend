@@ -2,10 +2,11 @@ import { ReactElement } from 'react'
 
 interface LogoProps {
   className?: string
+  onClick?: () => void
 }
 
 // eslint-disable-next-line max-lines-per-function
-export default function Logo({ className }: LogoProps): ReactElement {
+export default function Logo({ className, onClick }: LogoProps): ReactElement {
   return (
     <svg
       width="42"
@@ -13,7 +14,8 @@ export default function Logo({ className }: LogoProps): ReactElement {
       viewBox="0 0 42 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`${className} ${onClick ? 'cursor-pointer' : ''}`}
+      onClick={onClick}
     >
       <path
         d="M29.1565 9.1229H30.8154C32.1853 9.1229 33.4331 9.95413 34.0179 11.258L38.998 22.3641C39.2212 22.8622 39.3374 23.4061 39.3374 23.9568V34.3247C39.3374 35.8679 38.148 37.1185 36.6819 37.1185H5.05029C3.58406 37.1185 2.39551 35.8679 2.39551 34.3247V23.9553C2.39551 23.4061 2.5111 22.863 2.73393 22.3656L7.71463 11.258C8.29956 9.95413 9.54688 9.1229 10.9173 9.1229H12.895"
