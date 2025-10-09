@@ -2,13 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import CarIcon from '../assets/CarIcon'
 import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
-
-interface CarDetailsType {
-  name: string
-  owner: string
-  type: string
-  picture: string
-}
+import { CarDetailsType } from '../type/types'
 
 function CarCard({ name, owner, type, picture }: CarDetailsType) {
   const navigate = useNavigate()

@@ -1,16 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import BackIcon from '../assets/BackIcon'
 import OwnCard from '../components/OwnCard'
-import CarGreen from '../public/images/Car-green.png'
-import Blackcar from '../public/images/Car-Black.png'
+import cars from '../constants/Car'
 
 function OwnCar() {
   const navigate = useNavigate()
-  const cars = [
-    { name: 'Tini Titan', owner: 'Anna', type: 'Countryman', picture: Blackcar },
-
-    { name: 'Petitle Powerhouse', owner: 'Manuela', type: 'Moni Electric', picture: CarGreen },
-  ]
 
   return (
     <div className="mt-[100px] items-center md:flex md:max-w-none md:flex-col">
@@ -33,7 +27,7 @@ function OwnCar() {
         ))}
       </div>
 
-      <div className="mb-10 mt-2 w-[400px] p-4 md:w-[400px] ">
+      <div className="mb-10 mt-2 p-4 md:w-[400px] ">
         <button className="btn btn-primary  " onClick={() => navigate('/add-car')}>
           {' '}
           Add new Car

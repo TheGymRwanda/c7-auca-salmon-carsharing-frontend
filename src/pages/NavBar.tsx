@@ -9,11 +9,7 @@ import PlusIcon from '../assets/PlusIcon'
 import LogoutIcon from '../assets/LogoutIcon'
 import { useNavigate } from 'react-router-dom'
 import CarPlusIcon from '../assets/CarPlusIcon'
-
-interface NavbarProps {
-  className?: string
-  profileMenuView?: boolean
-}
+import { NavbarProps } from '../type/types'
 
 // eslint-disable-next-line max-lines-per-function
 export default function Navbar({ className, profileMenuView = true }: NavbarProps): ReactElement {

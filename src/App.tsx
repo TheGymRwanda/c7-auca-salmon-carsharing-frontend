@@ -8,17 +8,13 @@ import LandingPage from './pages/Landing'
 import Login from './pages/Login'
 import AddCar from './pages/AddCar '
 import BookingManagement from './pages/BookingManagement '
-import OwnCar from './pages/OwnCar'
 import CarDetails from './pages/CarDetails '
 import UserBookings from './pages/UserBookings '
 import CreateBooking from './pages/CreateBooking '
+import OwnCar from './pages/OwnCar'
 
 // Axios hooks configuration
-configure({
-  defaultOptions: {
-    autoCancel: false,
-  },
-})
+configure({ defaultOptions: { autoCancel: false } })
 
 function AppContent(): ReactElement {
   return (
