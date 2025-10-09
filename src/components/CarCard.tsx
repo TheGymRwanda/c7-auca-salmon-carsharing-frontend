@@ -2,13 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import CarIcon from '../assets/CarIcon'
 import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
-
-interface CarDetailsType {
-  name: string
-  owner: string
-  type: string
-  picture: string
-}
+import { CarDetailsType } from '../type/types'
 
 function CarCard({ name, owner, type, picture }: CarDetailsType) {
   const navigate = useNavigate()
@@ -21,9 +15,7 @@ function CarCard({ name, owner, type, picture }: CarDetailsType) {
         <div className="flex h-[188px] items-center justify-center gap-5 md:w-[650px]">
           {/* Showing the image */}
 
-          <div>
-            <InteractiveCarImage src={picture} alt={name} />
-          </div>
+          <InteractiveCarImage src={picture} alt={name} />
           {/* Show details with icons */}
           <div className=" flex h-[188px] w-[118px] flex-col gap-[30px]">
             <div className="flex h-[136px] w-[118px] flex-col gap-[10px]">

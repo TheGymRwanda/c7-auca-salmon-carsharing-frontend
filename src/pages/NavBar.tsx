@@ -10,13 +10,14 @@ import LogoutIcon from '../assets/LogoutIcon'
 import { useNavigate } from 'react-router-dom'
 import CarPlusIcon from '../assets/CarPlusIcon'
 
-interface NavbarProps {
+// eslint-disable-next-line max-lines-per-function
+export default function Navbar({
+  className,
+  profileMenuView = true,
+}: {
   className?: string
   profileMenuView?: boolean
-}
-
-// eslint-disable-next-line max-lines-per-function
-export default function Navbar({ className, profileMenuView = true }: NavbarProps): ReactElement {
+}): ReactElement {
   const navigate = useNavigate()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)

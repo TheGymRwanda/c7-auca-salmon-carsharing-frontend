@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom'
+
 function HomePage() {
+  const navigate = useNavigate()
   return (
     <div className=" ">
       <div className="mt-[200px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
@@ -17,8 +20,12 @@ function HomePage() {
         <div className="  flex w-full max-w-xs flex-col items-center gap-6 ">
           <button className="btn btn-primary  mt-20 md:mt-0">Book Car</button>
           <p>or</p>
-          <button className="btn btn-outline">See my Cars</button>
-          <button className="btn btn-outline">See my Bookinngs</button>
+          <button onClick={() => navigate('/own-car')} className="btn btn-outline">
+            See my Cars
+          </button>
+          <button onClick={() => navigate('/user-bookings')} className="btn btn-outline">
+            See my Bookings
+          </button>
         </div>
       </div>
     </div>
