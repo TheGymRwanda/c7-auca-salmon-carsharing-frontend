@@ -15,7 +15,7 @@ function InteractiveCarImage({ src, alt }: { src: string; alt: string }) {
 
   return (
     <div
-      className="relative flex h-[104px] w-[178px] justify-center md:h-[160px] md:w-[260px] md:cursor-pointer"
+      className="relative flex justify-center md:h-[160px] md:w-[260px] md:cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

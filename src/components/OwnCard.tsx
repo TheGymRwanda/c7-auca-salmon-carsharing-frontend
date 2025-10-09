@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import CarIcon from '../assets/CarIcon'
 import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
 import { CarDetailsType } from '../type/types'
 
 function OwnCard({ name, owner, type, picture }: CarDetailsType) {
-  const navigate = useNavigate()
-  const goToCarDetails = () => {
-    navigate(`/car-details:/${name}`)
-  }
+  // const navigate = useNavigate()
+  // const goToCarDetails = () => {
+  //   navigate(`/car-details/${name}`)
+  // }
   return (
     <>
       <div className="m-3 flex h-[250px] max-w-md flex-col items-center justify-center rounded-lg bg-[#3E7591]/70 px-[5px] py-[20px] shadow md:w-[700px]">
@@ -38,7 +38,7 @@ function OwnCard({ name, owner, type, picture }: CarDetailsType) {
             <div className="-mt-3 mr-20 flex h-[20px] w-[88px] justify-end text-yellow-200">
               <button
                 className="text-center align-middle text-[14px] font-bold"
-                onClick={goToCarDetails}
+                // onClick={goToCarDetails}
               >
                 Show details
               </button>
