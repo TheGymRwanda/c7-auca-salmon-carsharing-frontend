@@ -9,7 +9,6 @@ export default defineConfig({
   server: {
     allowedHosts: ['.ngrok-free.dev'],
   },
-  // @ts-expect-error: Vitest test config not recognized by Vite types
   test: {
     globals: true,
     environment: 'jsdom',
