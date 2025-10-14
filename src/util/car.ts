@@ -1,5 +1,5 @@
-import CarGreen from '../public/images/Car-green.png'
-import Blackcar from '../public/images/Car-Black.png'
+import CarGreen from '../../public/images/Car-green.png'
+import Blackcar from '../../public/images/Car-Black.png'
 import { CarDetailsType } from '../type/types'
 
 const cars: CarDetailsType[] = [

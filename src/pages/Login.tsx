@@ -43,7 +43,7 @@ function Login() {
         {/* Logo */}
         <div className="mb-16 flex flex-col items-center">
           <h1 className="text-5xl font-bold text-white">MONI</h1>
-          <h1 className="text-5xl italic text-white">share</h1>
+          <p className="text-5xl italic text-white">share</p>
         </div>
 
         {/* Login text */}
@@ -74,10 +74,8 @@ function Login() {
             />
           </div>
 
-          {/* Error message */}
           {error && <p className="text-center text-red-400">{error}</p>}
 
-          {/* Button */}
           <button
             type="submit"
             className="mt-6 w-full rounded-full bg-white py-3 font-bold text-[#64A1C0] transition hover:bg-gray-100"

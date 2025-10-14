@@ -1,6 +1,6 @@
 import NotFoundIcon from '../assets/NotFoundIcon'
 
-function ErrorPage() {
+export default function ErrorPage() {
   return (
     <div className="mt-[200px] flex flex-col items-center justify-center gap-5 text-center font-serif  font-medium">
       <div className="flex flex-col gap-4 md:items-center md:gap-6 ">
@@ -19,5 +19,3 @@ function ErrorPage() {
     </div>
   )
 }
-
-export default ErrorPage

@@ -4,7 +4,7 @@ import useUser from '../hooks/useUser'
 import CarCard from '../components/CarCard'
 import BackButton from '../components/BackButton'
 
-function ShowAllCar() {
+export default function ShowAllCar() {
   const [{ data: cars, loading: loadingCars, error: errorCars }] = useCars()
   const [{ data: carTypes, loading: loadingTypes, error: errorTypes }] = useCarTypes()
   const [{ data: owner }] = useUser(cars?.[0]?.ownerId ?? 0)
@@ -51,5 +51,3 @@ function ShowAllCar() {
     </div>
   )
 }
-
-export default ShowAllCar
