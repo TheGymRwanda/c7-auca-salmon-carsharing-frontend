@@ -10,7 +10,7 @@ import useCarTypes from '../hooks/useCarTypes'
 import useUser from '../hooks/useUser'
 import BackButton from '../components/BackButton'
 
-function CarDetails() {
+export default function CarDetails() {
   const { carName } = useParams()
   const [{ data: cars, loading: loadingCars }] = useCars()
   const [{ data: carTypes }] = useCarTypes()
@@ -77,5 +77,3 @@ function CarDetails() {
     </div>
   )
 }
-
-export default CarDetails

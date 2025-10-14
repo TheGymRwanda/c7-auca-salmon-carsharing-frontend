@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import OwnCard from '../components/OwnCard'
-import cars from '../constants/Car'
+import cars from '../util/car'
 import BackButton from '../components/BackButton'
 
-function OwnCar() {
+export default function OwnCar() {
   const navigate = useNavigate()
 
   return (
@@ -34,5 +34,3 @@ function OwnCar() {
     </div>
   )
 }
-
-export default OwnCar

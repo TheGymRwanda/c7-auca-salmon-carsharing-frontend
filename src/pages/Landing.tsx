@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import Navbar from './NavBar'
-function LandingPage() {
+export default function LandingPage() {
   const navigate = useNavigate()
   return (
-    <div className="">
+    <>
       <Navbar profileMenuView={false} />
       <div className="mt-[180px] flex flex-col  justify-center  font-serif font-bold md:justify-center">
         <div className="flex flex-col items-center gap-1">
@@ -28,8 +28,6 @@ function LandingPage() {
           </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }
-
-export default LandingPage

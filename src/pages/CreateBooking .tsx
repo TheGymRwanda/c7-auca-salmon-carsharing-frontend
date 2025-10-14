@@ -1,4 +1,4 @@
-function CreateBooking() {
+export default function CreateBooking() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-8 text-white">
       <h1 className="mb-4 text-3xl font-bold">Create Booking (Coming Soon)</h1>
@@ -8,5 +8,3 @@ function CreateBooking() {
     </div>
   )
 }
-
-export default CreateBooking

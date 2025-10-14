@@ -4,7 +4,7 @@ import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
 import { CarDetailsType } from '../type/types'
 
-function OwnCard({ name, owner, type, picture }: CarDetailsType) {
+export default function OwnCard({ name, owner, type, picture }: CarDetailsType) {
   // const navigate = useNavigate()
   // const goToCarDetails = () => {
   //   navigate(`/car-details/${name}`)
@@ -18,7 +18,6 @@ function OwnCard({ name, owner, type, picture }: CarDetailsType) {
           <div>
             <InteractiveCarImage src={picture} alt={name} />
           </div>
-          {/* Show details with icons */}
           <div className=" flex h-[188px] w-[118px] flex-col gap-[30px] ">
             <div className="flex h-[136px] w-[118px] flex-col gap-[10px]">
               <div className="flex h-[56px] w-[118px] items-center gap-2 space-y-5 text-[20px] tracking-normal">
@@ -52,4 +51,3 @@ function OwnCard({ name, owner, type, picture }: CarDetailsType) {
     </>
   )
 }
-export default OwnCard
