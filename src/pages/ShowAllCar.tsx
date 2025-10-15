@@ -3,6 +3,7 @@ import useCarTypes from '../hooks/useCarTypes'
 import useUser from '../hooks/useUser'
 import CarCard from '../components/CarCard'
 import BackButton from '../components/BackButton'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 export default function ShowAllCar() {
   const [{ data: cars, loading: loadingCars, error: errorCars }] = useCars()
@@ -22,19 +23,23 @@ export default function ShowAllCar() {
   }
 
   if (loadingCars || loadingTypes)
-    return <div className="mt-[150px] text-center">Loading cars...</div>
+    return (
+      <div>
+        <LoadingSpinner />
+      </div>
+    )
   if (errorCars || errorTypes)
     return (
-      <div className="mt-[150px] text-center text-red-500">
+      <div className="mt-36 text-center text-red-500">
         Failed to load cars. Please try again later.
       </div>
     )
 
   return (
-    <div className="mt-[100px] items-center md:flex md:max-w-none md:flex-col">
-      <div className="m-6 flex h-[36px] w-[356px] items-center justify-start gap-24 md:gap-40">
+    <div className="mt-24 items-center md:flex md:max-w-none md:flex-col">
+      <div className="m-6 flex h-9 w-80 items-center justify-start gap-24 md:gap-40">
         <BackButton />
-        <h1 className="font-serif text-[30px] font-bold tracking-widest md:text-2xl">ALL CARS</h1>
+        <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">ALL CARS</h1>
       </div>
 
       <div>
