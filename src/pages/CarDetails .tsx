@@ -7,11 +7,11 @@ import BackButton from '../components/BackButton'
 import LoadingSpinner from '../components/LoadingSpinner'
 
 export default function CarDetails() {
-  const { carName } = useParams()
+  const { id } = useParams()
   const [{ data: cars, loading: loadingCars }] = useCars()
   const [{ data: carTypes }] = useCarTypes()
 
-  const car = cars?.find(c => c.name === carName)
+  const car = cars?.find(c => c.id === Number(id))
   const [{ data: owner }] = useUser(car?.ownerId ?? 0)
 
   if (loadingCars)

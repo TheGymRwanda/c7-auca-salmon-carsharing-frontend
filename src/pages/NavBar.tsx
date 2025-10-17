@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactElement, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProfileIcon } from '../assets/index'
@@ -48,6 +50,8 @@ export default function Navbar({
         </div>
         {profileMenuView && <ProfileIcon className="size-5" />}
       </nav>
+
+      {/* Mobile Menu - unchanged */}
       <div
         className={`fixed inset-0 z-50 transition-opacity duration-300 md:hidden ${
           isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
@@ -61,6 +65,29 @@ export default function Navbar({
         >
           <NavMenuList closeMenu={closeMenu} />
         </div>
+      </div>
+
+      {/* Desktop Menu - new responsive format */}
+      <div className="hidden md:block">
+        <div
+          className={`fixed left-0 top-14 z-40 h-[calc(100vh-3.5rem)] w-64 bg-background shadow-xl transition-transform duration-300 ${
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
+        >
+          <div className="flex h-full flex-col">
+            <div className="flex items-center justify-center border-b border-gray-200 p-6">
+              <img src={logo} alt="Logo" className="size-12" />
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              <NavMenuList closeMenu={closeMenu} />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop overlay */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-30 bg-black/50 md:block" onClick={closeMenu} />
+        )}
       </div>
     </>
   )

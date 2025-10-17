@@ -23,7 +23,7 @@ function AppContent(): ReactElement {
       <Route path="/add-car" element={<AddCar />} />
       <Route path="/booking-management" element={<BookingManagement />} />
       <Route path="/own-car" element={<OwnCar />} />
-      <Route path="/car-details/:carName" element={<CarDetails />} />
+      <Route path="/car-details/:id" element={<CarDetails />} />
       <Route path="/user-bookings" element={<UserBookings />} />
       <Route path="/create-booking" element={<CreateBooking />} />
       <Route path="/show-all-cars" element={<ShowAllCar />} />

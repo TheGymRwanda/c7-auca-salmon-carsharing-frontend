@@ -4,10 +4,10 @@ import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
 import { CarDetailsType } from '../type/types'
 
-export default function CarCard({ name, owner, type, picture }: CarDetailsType) {
+export default function CarCard({ id, name, owner, type, picture }: CarDetailsType) {
   const navigate = useNavigate()
   const goToCarDetails = () => {
-    navigate(`/car-details/${name}`)
+    navigate(`/car-details/${id}`)
   }
   return (
     <>
