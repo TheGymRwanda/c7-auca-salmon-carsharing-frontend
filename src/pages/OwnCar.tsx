@@ -26,7 +26,7 @@ export default function OwnCar() {
         ))}
       </div>
 
-      <div className="mb-10 mt-2 p-4 md:w-[400px] ">
+      <div className="md:w-76 mb-10 mt-2 p-4 ">
         <Button variant="primary" onClick={() => navigate('/add-car')}>
           Add new Car
         </Button>
