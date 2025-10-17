@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global reset */
 * {
   @apply box-border;
 }
@@ -11,24 +10,20 @@ body {
   @apply font-normal text-left text-sm relative text-gray-100 bg-background;
 }
 
-/* Buttons */
 .btn {
-  @apply  w-full px-6 py-3  rounded-full font-bold text-center 
+  @apply w-full px-6 py-3  rounded-full font-bold text-center 
          bg-white text-background shadow-md
          transition duration-200 ease-in-out;
 }
 
-/* Outline button variation */
 .btn-outline {
   @apply w-full px-6 py-3 rounded-full font-medium text-center border-2 border-white text-white bg-background transition duration-200 ease-in-out;
 }
 
 .btn-outline2 {
-    @apply w-[296px] h-[41px] px-4 py-2  rounded-full font-bold text-center border-2 border-[#FFC28A] text-[#FFC28A] shadow-md transition duration-200 ease-in-out ;
-
+  @apply w-[296px] h-[41px] px-4 py-2  rounded-full font-bold text-center border-2 border-[#FFC28A] text-[#FFC28A] shadow-md transition duration-200 ease-in-out;
 }
 
-/* Hover states */
 .btn:hover {
   @apply bg-gray-300;
 }
@@ -36,4 +31,3 @@ body {
 .btn-outline:hover {
   @apply bg-white text-background;
 }
-

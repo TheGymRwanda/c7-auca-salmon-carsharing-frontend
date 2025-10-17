@@ -1,16 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import OwnCard from '../components/OwnCard'
-import cars from '../constants/Car'
+import cars from '../util/car'
 import BackButton from '../components/BackButton'
+import Button from '../components/Button'
 
-function OwnCar() {
+export default function OwnCar() {
   const navigate = useNavigate()
 
   return (
-    <div className="mt-[100px] items-center md:flex md:max-w-none md:flex-col">
-      <div className="left-[17px] top-[100px] m-6 flex h-[36px] w-[356px] items-center justify-start gap-24 md:gap-40">
+    <div className="mt-24 items-center text-gray-300 md:flex md:max-w-none md:flex-col">
+      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start gap-24 md:gap-40">
         <BackButton />
-        <h1 className="font-serif text-[30px] font-bold tracking-widest md:text-2xl">MY CARS</h1>
+        <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">MY CARS</h1>
       </div>
 
       <div>
@@ -25,14 +26,11 @@ function OwnCar() {
         ))}
       </div>
 
-      <div className="mb-10 mt-2 p-4 md:w-[400px] ">
-        <button className="btn btn-primary  " onClick={() => navigate('/add-car')}>
-          {' '}
+      <div className="md:w-76 mb-10 mt-2 p-4 ">
+        <Button variant="primary" onClick={() => navigate('/add-car')}>
           Add new Car
-        </button>
+        </Button>
       </div>
     </div>
   )
 }
-
-export default OwnCar

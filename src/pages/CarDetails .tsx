@@ -1,27 +1,28 @@
-import HorseIcon from '../assets/HorseIcon'
-import FuelIcon from '../assets/FuelIcon'
-import ProfileIcon from '../assets/ProfileIcon'
-import CarIcon from '../assets/CarIcon'
-import LicensePlate from '../assets/LicensePlate.svg'
-import Icon from '../assets/Icon.svg'
+import { ProfileIcon, CarIcon, HorseIcon, FuelIcon, LicensePlate, Icon } from '../assets/index'
 import { useParams } from 'react-router-dom'
 import useCars from '../hooks/useCars'
 import useCarTypes from '../hooks/useCarTypes'
 import useUser from '../hooks/useUser'
 import BackButton from '../components/BackButton'
+import LoadingSpinner from '../components/LoadingSpinner'
 
-function CarDetails() {
-  const { carName } = useParams()
+export default function CarDetails() {
+  const { id } = useParams()
   const [{ data: cars, loading: loadingCars }] = useCars()
   const [{ data: carTypes }] = useCarTypes()
 
-  const car = cars?.find(c => c.name === carName)
+  const car = cars?.find(c => c.id === Number(id))
   const [{ data: owner }] = useUser(car?.ownerId ?? 0)
 
-  if (loadingCars) return <div className="mt-[150px] text-center">Loading...</div>
+  if (loadingCars)
+    return (
+      <div className="mt-36 text-center">
+        <LoadingSpinner />
+      </div>
+    )
   if (!car)
     return (
-      <div className="mt-[150px] text-center text-2xl text-red-500">
+      <div className="mt-36 text-center text-2xl text-red-500">
         Car not found! <BackButton />
       </div>
     )
@@ -30,10 +31,10 @@ function CarDetails() {
   const carImage = carType?.imageUrl ?? ''
 
   return (
-    <div className="mt-[100px] max-w-sm items-center md:flex md:max-w-none md:flex-col">
-      <div className="left-[17px] top-[100px] m-6 flex h-[36px] w-[356px] items-center justify-start md:gap-40">
+    <div className="mt-24 max-w-sm items-center md:flex md:max-w-none md:flex-col">
+      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-40">
         <BackButton />
-        <h1 className="w-full text-center text-[30px] font-bold tracking-widest md:text-2xl">
+        <h1 className="w-full text-center text-3xl font-bold tracking-widest md:text-2xl">
           DETAILS
         </h1>
       </div>
@@ -77,5 +78,3 @@ function CarDetails() {
     </div>
   )
 }
-
-export default CarDetails

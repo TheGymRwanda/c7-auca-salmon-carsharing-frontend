@@ -43,8 +43,6 @@ export function initThreeCar({ canvas, src, isHovered, isMdScreen }: ThreeCarPro
     animationFrame = requestAnimationFrame(animate)
   }
   animate()
-
-  // Cleanup function
   return () => {
     cancelAnimationFrame(animationFrame)
     renderer.dispose()
