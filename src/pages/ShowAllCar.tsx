@@ -4,6 +4,7 @@ import { useUsers } from '../hooks'
 import CarCard from '../components/CarCard'
 import BackButton from '../components/BackButton'
 import LoadingSpinner from '../components/LoadingSpinner'
+import ErrorPage from './ErrorPage'
 
 export default function ShowAllCar() {
   const [{ data: cars, loading: loadingCars, error: errorCars }] = useCars()
@@ -34,9 +35,12 @@ export default function ShowAllCar() {
 
   if (errorCars || errorTypes || errorUsers)
     return (
-      <div className="mt-36 text-center text-red-500">
-        Failed to load data. Please try again later.
-      </div>
+      <>
+        <div className="mt-36 text-center text-red-500">
+          Failed to load data. Please try again later.
+        </div>
+        <ErrorPage />
+      </>
     )
 
   return (
