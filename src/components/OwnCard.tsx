@@ -6,11 +6,17 @@ import { CarDetailsType } from '../type/types'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
 
-export default function OwnCard({ id, name, owner, type, picture }: CarDetailsType) {
+export default function OwnCard({ id, name, owner, type, picture, onDelete }: CarDetailsType) {
   const navigate = useNavigate()
   const goToCarDetails = () => {
     navigate(`/car-details/${id}`)
   }
+
+  const handleDelete = () => {
+    if (id === undefined) return
+    onDelete(id)
+  }
+
   return (
     <>
       <div className="m-3 flex h-72 max-w-md flex-col items-center justify-center rounded-lg bg-background-lighter px-1 py-5 text-gray-300 shadow md:w-96">
@@ -36,7 +42,7 @@ export default function OwnCard({ id, name, owner, type, picture }: CarDetailsTy
                 <span>{type}</span>
               </div>
             </div>
-            <div className="-ml-2 flex h-5 w-28 justify-end text-yellow-100">
+            <div className="-ml-16 flex h-5 w-28 cursor-pointer justify-end text-yellow-100">
               <a className="text-left text-lg" onClick={goToCarDetails}>
                 Show details
               </a>
@@ -44,7 +50,7 @@ export default function OwnCard({ id, name, owner, type, picture }: CarDetailsTy
           </div>
         </div>
         <div>
-          <Button variant="outline2" className="mt-4">
+          <Button variant="outline2" className="mt-4 " onClick={handleDelete}>
             Delete
           </Button>
         </div>

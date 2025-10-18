@@ -1,48 +1,54 @@
 import { useNavigate } from 'react-router-dom'
-import OwnCard from '../components/OwnCard'
 import BackButton from '../components/BackButton'
 import Button from '../components/Button'
-import { useCars, useCarTypes, useUsers } from '../hooks'
 import ErrorPage from './ErrorPage'
 import LoadingSpinner from '../components/LoadingSpinner'
+import { useCarTypes, useUsers } from '../hooks'
+import { usedeletecar } from '../hooks/usedeletecar'
+import DeleteConfirmDialog from '../components/DeleteConfirmDialog'
+import useOwnedCars from '../hooks/useOwnedCars'
+import CarList from '../components/CarList'
+import { useState } from 'react'
 
 export default function OwnCar() {
   const navigate = useNavigate()
-  const [{ data: cars, loading: loadingCars, error: errorCars }] = useCars()
-  const [{ data: carTypes, loading: loadingTypes, error: errorTypes }] = useCarTypes()
+  const ownerId = Number(localStorage.getItem('userId'))
+  const { ownedCars, setOwnedCars, loading, error } = useOwnedCars(ownerId)
   const [{ data: users, loading: loadingUsers, error: errorUsers }] = useUsers()
-  const ownerId = localStorage.getItem('userId')
-  const userCars = cars?.filter(car => car.ownerId === Number(ownerId))
-  const getCarOwnerName = (ownerId: number): string => {
-    const owner = users?.find(u => u.id === ownerId)
-    return owner ? owner.name : `Owner ID: ${ownerId}`
+  const [{ data: carTypes, loading: loadingTypes, error: errorTypes }] = useCarTypes()
+
+  const [selectedCarId, setSelectedCarId] = useState<number | null>(null)
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [message, setMessage] = useState<string | null>(null)
+
+  const handleRequestDelete = (carId: number) => {
+    setSelectedCarId(carId)
+    setIsDialogOpen(true)
   }
 
-  const getCarTypeName = (carTypeId: number): string => {
-    const type = carTypes?.find(t => t.id === carTypeId)
-    return type ? type.name : 'Unknown Type'
+  const handleConfirmDelete = async () => {
+    if (selectedCarId == null) return
+    try {
+      await usedeletecar(selectedCarId)
+      setOwnedCars(prev => prev.filter(car => car.id !== selectedCarId))
+      setMessage('Car deleted successfully.')
+    } catch (error) {
+      console.error(error)
+      setMessage('Failed to delete the car.')
+    } finally {
+      setIsDialogOpen(false)
+      setSelectedCarId(null)
+      setTimeout(() => setMessage(null), 4000)
+    }
   }
 
-  const getCarImage = (carTypeId: number): string => {
-    const type = carTypes?.find(t => t.id === carTypeId)
-    return type?.imageUrl ?? ''
+  const handleCancelDelete = () => {
+    setIsDialogOpen(false)
+    setSelectedCarId(null)
   }
-  if (loadingCars || loadingTypes || loadingUsers)
-    return (
-      <div>
-        <LoadingSpinner />
-      </div>
-    )
 
-  if (errorCars || errorTypes || errorUsers)
-    return (
-      <>
-        <div className="mt-36 text-center text-red-500">
-          Failed to load data. Please try again later.
-        </div>
-        <ErrorPage />
-      </>
-    )
+  if (loading || loadingTypes || loadingUsers) return <LoadingSpinner />
+  if (error || errorTypes || errorUsers) return <ErrorPage />
 
   return (
     <div className="mt-24 items-center text-gray-300 md:flex md:max-w-none md:flex-col">
@@ -51,24 +57,26 @@ export default function OwnCar() {
         <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">MY CARS</h1>
       </div>
 
-      <div>
-        {userCars?.map(car => (
-          <OwnCard
-            key={car.name}
-            name={car.name}
-            id={car.id}
-            owner={getCarOwnerName(car.ownerId)}
-            type={getCarTypeName(car.carTypeId)}
-            picture={getCarImage(car.carTypeId)}
-          />
-        ))}
-      </div>
+      {message && <div className="mb-4 text-center text-sm text-green-400">{message}</div>}
 
-      <div className="md:w-76 mb-10 mt-2 p-4 ">
+      <CarList
+        cars={ownedCars}
+        users={users ?? []}
+        carTypes={carTypes ?? []}
+        onDelete={handleRequestDelete}
+      />
+
+      <div className="md:w-76 mb-10 mt-2 p-4">
         <Button variant="primary" onClick={() => navigate('/add-car')}>
           Add new Car
         </Button>
       </div>
+
+      <DeleteConfirmDialog
+        isOpen={isDialogOpen}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   )
 }
