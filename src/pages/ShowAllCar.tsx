@@ -50,10 +50,9 @@ export default function ShowAllCar() {
         <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">ALL CARS</h1>
       </div>
 
-      <div>
+      <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3">
         {cars?.map(car => {
           const name = /^[0-9]+$/.test(car.name) ? car.name.slice(0, 10) + '...' : car.name
-
           return (
             <CarCard
               key={car.id}

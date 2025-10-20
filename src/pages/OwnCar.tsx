@@ -59,12 +59,14 @@ export default function OwnCar() {
 
       {message && <div className="mb-4 text-center text-sm text-green-400">{message}</div>}
 
-      <CarList
-        cars={ownedCars}
-        users={users ?? []}
-        carTypes={carTypes ?? []}
-        onDelete={handleRequestDelete}
-      />
+      <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <CarList
+          cars={ownedCars}
+          users={users ?? []}
+          carTypes={carTypes ?? []}
+          onDelete={handleRequestDelete}
+        />
+      </div>
 
       <div className="md:w-76 mb-10 mt-2 p-4">
         <Button variant="primary" onClick={() => navigate('/add-car')}>

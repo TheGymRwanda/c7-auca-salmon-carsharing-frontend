@@ -2,11 +2,11 @@
 import CarIcon from '../assets/CarIcon'
 import ProfileIcon from '../assets/ProfileIcon'
 import InteractiveCarImage from './InteractiveCarImage'
-import { CarDetailsType } from '../type/types'
 import Button from './Button'
 import { useNavigate } from 'react-router-dom'
+import { OwnCardProps } from '../type/types'
 
-export default function OwnCard({ id, name, owner, type, picture, onDelete }: CarDetailsType) {
+export default function OwnCard({ id, name, owner, type, picture, onDelete }: OwnCardProps) {
   const navigate = useNavigate()
   const goToCarDetails = () => {
     navigate(`/car-details/${id}`)
