@@ -1,22 +1,41 @@
 import { ReactElement } from 'react'
 import { configure } from 'axios-hooks'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import ErrorPage from './pages/ErrorPage'
+import ShowAllCar from './pages/ShowAllCar'
+import LandingPage from './pages/Landing'
+import Login from './pages/Login'
+import AddCar from './pages/AddCar '
+import BookingManagement from './pages/BookingManagement '
+import CarDetails from './pages/CarDetails '
+import UserBookings from './pages/UserBookings '
+import CreateBooking from './pages/CreateBooking '
+import OwnCar from './pages/OwnCar'
 
-// Configure axios hooks
-// Do not delete this if you want to use the provided API hooks in `src/hooks`
-configure({
-  defaultOptions: {
-    autoCancel: false,
-  },
-})
+// Axios hooks configuration
+configure({ defaultOptions: { autoCancel: false } })
+
+function AppContent(): ReactElement {
+  return (
+    <Routes>
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/add-car" element={<AddCar />} />
+      <Route path="/booking-management" element={<BookingManagement />} />
+      <Route path="/own-car" element={<OwnCar />} />
+      <Route path="/car-details/:id" element={<CarDetails />} />
+      <Route path="/user-bookings" element={<UserBookings />} />
+      <Route path="/create-booking" element={<CreateBooking />} />
+      <Route path="/show-all-cars" element={<ShowAllCar />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
+  )
+}
 
 function App(): ReactElement {
-  return (
-    <main className="mx-auto flex min-h-screen w-1/3 flex-col gap-8 py-10">
-      <h1 className="text-4xl font-bold">Hello to CarSharing</h1>
-      <p>If you can read this, you have successfully started the base frontend repository!</p>
-      <p>Happy coding!</p>
-    </main>
-  )
+  return <AppContent />
 }
 
 export default App

@@ -6,6 +6,9 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: '/',
   plugins: [react()],
+  server: {
+    allowedHosts: ['.ngrok-free.dev'],
+  },
   test: {
     globals: true,
     environment: 'jsdom',
