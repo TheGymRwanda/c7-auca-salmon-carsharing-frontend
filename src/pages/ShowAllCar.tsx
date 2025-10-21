@@ -1,6 +1,4 @@
-import useCars from '../hooks/useCars'
-import useCarTypes from '../hooks/useCarTypes'
-import { useUsers } from '../hooks'
+import { useUsers, useCarTypes, useCars } from '../hooks'
 import CarCard from '../components/CarCard'
 import BackButton from '../components/BackButton'
 import LoadingSpinner from '../components/LoadingSpinner'
