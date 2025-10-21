@@ -16,6 +16,11 @@ body {
          transition duration-200 ease-in-out;
 }
 
+.btn-form {
+  @apply w-full px-6 py-3  rounded-full font-bold text-center transition 
+          duration-200 ease-in-out;
+}
+
 .btn-outline {
   @apply w-full px-6 py-3 rounded-full font-medium text-center border-2 border-white text-white bg-background transition duration-200 ease-in-out;
 }
@@ -30,4 +35,16 @@ body {
 
 .btn-outline:hover {
   @apply bg-white text-background;
+}
+
+.form-input {
+  @apply w-full h-12 mb-5 px-5 bg-background-light rounded-full placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.select-arrow {
+  @apply pointer-events-none absolute inset-y-0 right-5 flex items-center;
+}
+
+.form-select {
+  @apply w-full h-12 mb-5 px-5 bg-background-light rounded-full text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none;
 }
