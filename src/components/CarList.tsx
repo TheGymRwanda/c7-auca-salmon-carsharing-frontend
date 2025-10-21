@@ -17,10 +17,6 @@ export default function CarList({ cars, users, carTypes, onDelete }: CarProps) {
     return type?.imageUrl ?? ''
   }
 
-  if (cars.length === 0) {
-    return <p className="mt-10 text-center text-lg">You don&apos;t have any cars yet.</p>
-  }
-
   return (
     <>
       {cars.map(car => (

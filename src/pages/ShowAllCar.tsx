@@ -45,7 +45,7 @@ export default function ShowAllCar() {
 
   return (
     <div className="mt-24 items-center md:flex md:max-w-none md:flex-col">
-      <div className="m-6 flex h-9 w-80 items-center justify-start gap-24 md:gap-40">
+      <div className="m-6 flex h-9 w-80 items-center justify-start gap-24 md:w-96 md:gap-20">
         <BackButton />
         <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">ALL CARS</h1>
       </div>

@@ -32,14 +32,14 @@ export default function CarDetails() {
 
   return (
     <div className="mt-24 max-w-sm items-center md:flex md:max-w-none md:flex-col">
-      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-40">
+      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-10">
         <BackButton />
         <h1 className="w-full text-center text-3xl font-bold tracking-widest md:text-2xl">
           DETAILS
         </h1>
       </div>
 
-      <div>
+      <div className="md:grid md:grid-cols-2">
         <div className="mt-8 flex h-[300px]  justify-center">
           <img className="h-full w-[95%] object-contain" src={carImage} alt={car.name} />
         </div>
@@ -68,7 +68,7 @@ export default function CarDetails() {
               <FuelIcon />
               <span className="ml-2 capitalize">{car.fuelType}</span>
             </p>
-            <p className="flex items-center">
+            <p className="flex items-center md:max-w-sm">
               <img src={Icon} alt="info" />
               <span className="ml-2">{car.info || 'No additional info'}</span>
             </p>
