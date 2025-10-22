@@ -59,7 +59,7 @@ export default function CarForm({
             <FormInput name="horsepower" value={formData.horsepower} placeholder="110" />
           </div>
         </div>
-        <div className="flex flex-col relative">
+        <div className="relative flex flex-col">
           <label>Fuel Type</label>
           <FormSelect
             name="fuelType"
