@@ -7,11 +7,11 @@ import ShowAllCar from './pages/ShowAllCar'
 import LandingPage from './pages/Landing'
 import Login from './pages/Login'
 import OwnCar from './pages/OwnCar'
-import AddCar from './pages/AddCar'
 import BookingManagement from './pages/BookingManagement'
 import CarDetails from './pages/CarDetails'
 import UserBookings from './pages/UserBookings '
 import CreateBooking from './pages/CreateBooking'
+import AddCar from './pages/AddCar'
 
 // Axios hooks configuration
 configure({ defaultOptions: { autoCancel: false } })
