@@ -9,6 +9,7 @@ import DeleteConfirmDialog from '../components/DeleteConfirmDialog'
 import useOwnedCars from '../hooks/useOwnedCars'
 import CarList from '../components/CarList'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 export default function OwnCar() {
   const navigate = useNavigate()
@@ -19,7 +20,6 @@ export default function OwnCar() {
 
   const [selectedCarId, setSelectedCarId] = useState<number | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [message, setMessage] = useState<string | null>(null)
 
   const handleRequestDelete = (carId: number) => {
     setSelectedCarId(carId)
@@ -31,14 +31,12 @@ export default function OwnCar() {
     try {
       await usedeletecar(selectedCarId)
       setOwnedCars(prev => prev.filter(car => car.id !== selectedCarId))
-      setMessage('Car deleted successfully.')
+      toast.success('Car deleted successfully.')
     } catch (error) {
-      console.error(error)
-      setMessage('Failed to delete the car.')
+      toast.error('Failed to delete the car.')
     } finally {
       setIsDialogOpen(false)
       setSelectedCarId(null)
-      setTimeout(() => setMessage(null), 4000)
     }
   }
 
@@ -57,7 +55,6 @@ export default function OwnCar() {
         <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">MY CARS</h1>
       </div>
 
-      {message && <div className="mb-4 text-center text-sm text-green-400">{message}</div>}
       {ownedCars.length === 0 && (
         <div className="mt-20 flex flex-col items-center justify-center text-center text-gray-300">
           <p className="text-lg font-medium md:text-xl">You don’t have any cars yet.</p>

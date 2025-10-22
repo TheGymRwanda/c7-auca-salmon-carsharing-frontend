@@ -61,3 +61,19 @@ export interface ConfirmDeleteProps {
   onConfirm: () => void
   onCancel: () => void
 }
+
+export interface CarFormProps {
+  formData: {
+    carTypeId: string
+    name: string
+    fuelType: string
+    horsepower: string
+    licensePlate: string
+    info: string
+  }
+  isSubmitting: boolean
+  onSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  onCancel?: () => void
+}

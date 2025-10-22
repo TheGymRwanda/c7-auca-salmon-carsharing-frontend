@@ -12,6 +12,7 @@ import CarDetails from './pages/CarDetails'
 import UserBookings from './pages/UserBookings '
 import CreateBooking from './pages/CreateBooking'
 import AddCar from './pages/AddCar'
+import ProtectedRoute from './components/ProtectedRoute'
 
 // Axios hooks configuration
 configure({ defaultOptions: { autoCancel: false } })
@@ -19,14 +20,16 @@ configure({ defaultOptions: { autoCancel: false } })
 function AppContent(): ReactElement {
   return (
     <Routes>
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/add-car" element={<AddCar />} />
-      <Route path="/booking-management" element={<BookingManagement />} />
-      <Route path="/own-car" element={<OwnCar />} />
-      <Route path="/car-details/:id" element={<CarDetails />} />
-      <Route path="/user-bookings" element={<UserBookings />} />
-      <Route path="/create-booking" element={<CreateBooking />} />
-      <Route path="/show-all-cars" element={<ShowAllCar />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/add-car" element={<AddCar />} />
+        <Route path="/booking-management" element={<BookingManagement />} />
+        <Route path="/own-car" element={<OwnCar />} />
+        <Route path="/car-details/:id" element={<CarDetails />} />
+        <Route path="/user-bookings" element={<UserBookings />} />
+        <Route path="/create-booking" element={<CreateBooking />} />
+        <Route path="/show-all-cars" element={<ShowAllCar />} />
+      </Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<ErrorPage />} />
