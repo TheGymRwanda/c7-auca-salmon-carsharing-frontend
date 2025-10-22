@@ -1,4 +1,4 @@
-import { useCarTypeOptions } from '../hooks'
+import { useCarTypes } from '../hooks'
 import { CarFormProps } from '../type/types'
 import { ChevronDownIcon } from '../assets'
 import FormInput from './FormInput'
@@ -19,8 +19,7 @@ export default function CarForm({
   onCancel,
 }: CarFormProps) {
   const fuelTypes = ['Diesel', 'Petrol', 'Electric']
-  //   const [{ data: carTypes }] = useCarTypes()
-  const carTypeNames = useCarTypeOptions()
+  const [{ data: carTypes }] = useCarTypes()
   return (
     <FormContext.Provider value={{ onInputChange, onSelectChange }}>
       <form onSubmit={onSubmit} className="[&_label]:ml-4 [&_label]:mb-1">
@@ -30,12 +29,18 @@ export default function CarForm({
         </div>
         <div className="flex flex-col relative">
           <label>Type</label>
-          <FormSelect
+          <select
             name="carTypeId"
             value={formData.carTypeId}
-            placeholder="Select Car Type"
-            choices={carTypeNames}
-          />
+            onChange={onSelectChange}
+            className="form-select"
+          >
+            {carTypes?.map(carType => (
+              <option key={carType.id} value={carType.id}>
+                {carType.name}
+              </option>
+            ))}
+          </select>
           <div className="select-arrow">
             <ChevronDownIcon />
           </div>
