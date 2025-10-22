@@ -22,13 +22,11 @@ export default function Navbar({
   return (
     <>
       <nav
-        className={`fixed left-0 top-0 z-50 flex h-16 w-full items-center justify-between bg-slate-900 px-4 text-white shadow ${className}`}
+        className={`fixed left-0 top-0 z-50 flex h-16 w-full items-center ${profile ? 'justify-between' : 'justify-center'} bg-slate-900 px-4 text-white shadow ${className}`}
       >
-        {profile && (
-          <div className="hidden items-center md:flex">
-            <LogoLink />
-          </div>
-        )}
+        <div className="hidden items-center md:flex">
+          <LogoLink />
+        </div>
         {profile && <MobileHamburger isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
         {profile && <DesktopNav />}
         <div className="flex flex-1 justify-center md:hidden">

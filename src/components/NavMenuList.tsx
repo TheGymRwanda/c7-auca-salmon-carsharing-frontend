@@ -91,7 +91,7 @@ export default function NavMenuList({ closeMenu }: { closeMenu?: () => void }) {
           onClick={() => {
             localStorage.removeItem('token')
             localStorage.removeItem('userId')
-            navigate('/login')
+            navigate('/')
             closeMenu && closeMenu()
           }}
           className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-slate-700"

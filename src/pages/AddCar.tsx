@@ -1,23 +1,30 @@
 import BackButton from '../components/BackButton'
-import { ChevronDownIcon } from '../assets'
-import { useCarTypes } from '../hooks'
+import CarForm from '../components/CarForm'
 import { apiUrl } from '../util/apiUrl'
 import axios from 'axios'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
-function AddCar() {
-  const [{ data: carTypes }] = useCarTypes() // error & loading states missing
+export default function AddCar() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formData, setFormData] = useState({
+  const initFormState = {
     carTypeId: '',
     name: '',
     fuelType: '',
     horsepower: '',
     licensePlate: '',
     info: '',
-  })
-  const handleChange = (e: React.ChangeEvent<HTMLElement | HTMLSelectElement>) => {
-    const { name, value } = e.target as HTMLInputElement
+  }
+  const [formData, setFormData] = useState(initFormState)
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
       [name]: value,
@@ -44,131 +51,32 @@ function AddCar() {
         },
       )
 
-      alert('Car added!')
-      setFormData({
-        carTypeId: '',
-        name: '',
-        fuelType: 'diesel',
-        horsepower: '',
-        licensePlate: '',
-        info: '',
-      })
+      toast.success('Car added!')
+      setFormData(initFormState)
     } catch (error) {
-      console.log(error)
+      if (axios.isAxiosError(error) && error.response?.status === 400) {
+        toast.error('Failed to add car')
+      }
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="mt-24 mx-5 max-w-sm items-center md:flex md:max-w-none md:flex-col">
+    <div className="mx-5 mt-24 max-w-sm items-center md:flex md:max-w-none md:flex-col">
       <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-40">
         <BackButton />
         <h1 className="w-full text-center text-3xl font-bold tracking-widest md:text-2xl">
           New Car
         </h1>
       </div>
-      <form onSubmit={handleSubmit} className="[&_label]:ml-4 [&_label]:mb-1">
-        <div className="flex flex-col">
-          <label>Name</label>
-          <input
-            required
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="e.g. My Nice Moni Car"
-            className="form-input text-white"
-          />
-        </div>
-        <div className="flex flex-col relative">
-          <label>Type</label>
-          <select
-            required
-            name="carTypeId"
-            value={formData.carTypeId}
-            onChange={handleChange}
-            className="form-select"
-          >
-            <option>Select Car Type</option>
-            {carTypes?.map(type => (
-              <option key={type.id} value={type.id}>
-                {type.name}
-              </option>
-            ))}
-          </select>
-          <div className="select-arrow">
-            <ChevronDownIcon />
-          </div>
-        </div>
-        <div className="flex gap-4">
-          <div className="flex flex-col">
-            <label>License Plate</label>
-            <input
-              required
-              type="text"
-              name="licensePlate"
-              value={formData.licensePlate}
-              onChange={handleChange}
-              placeholder="e.g. M-XY 123"
-              className="form-input"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="">Horse Power</label>
-            <input
-              required
-              type="text"
-              name="horsepower"
-              value={formData.horsepower}
-              onChange={handleChange}
-              placeholder="110"
-              className="form-input"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col relative">
-          <label>Fuel Type</label>
-          <select
-            required
-            name="fuelType"
-            value={formData.fuelType}
-            onChange={handleChange}
-            className="form-select"
-          >
-            <option value="diesel">Diesel</option>
-            <option value="petrol">Petrol</option>
-            <option value="electric">Electric</option>
-            <option value="hybrid">Hybrid</option>
-          </select>
-          <div className="select-arrow">
-            <ChevronDownIcon />
-          </div>
-        </div>
-        <div className="flex flex-col">
-          <label>Additional Information</label>
-          <input
-            type="text"
-            name="info"
-            value={formData.info}
-            onChange={handleChange}
-            placeholder="e.g. No Smoking"
-            className="form-input text-white"
-          />
-        </div>
-        <div className="mt-16 flex gap-4">
-          <button className="btn-form border-2 border-white">Cancel</button>
-          <button
-            disabled={isSubmitting}
-            type="submit"
-            className="btn-form bg-white text-background"
-          >
-            {isSubmitting ? 'Adding...' : 'Add Car'}
-          </button>
-        </div>
-      </form>
+      <CarForm
+        formData={formData}
+        isSubmitting={isSubmitting}
+        onSelectChange={handleSelectChange}
+        onInputChange={handleInputChange}
+        onSubmit={handleSubmit}
+      />
     </div>
   )
 }
-
-export default AddCar
