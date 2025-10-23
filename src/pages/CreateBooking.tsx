@@ -1,10 +1,28 @@
+import Header from '../components/Header'
+import OwnCard from '../components/OwnCard'
+import cars from '../util/car'
+
 export default function CreateBooking() {
+  const handleBookCar = (id?: number) => {
+    if (id === undefined) return
+    console.log('Booking car with ID:', id)
+    // Add your booking logic here
+  }
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-8 text-white">
-      <h1 className="mb-4 text-3xl font-bold">Create Booking (Coming Soon)</h1>
-      <p className="text-center text-gray-300">
-        This page will allow users to create new bookings in the future.
-      </p>
+    <div className="mt-20 items-center md:flex md:max-w-none md:flex-col">
+      <Header>AVAILABLE CARS</Header>
+      <div className="md:w-200 flex flex-wrap justify-between ">
+        {cars.map(car => (
+          <OwnCard
+            key={car.id}
+            {...car}
+            buttonLabel="Book a car"
+            onAction={handleBookCar}
+            buttonVariant="primary"
+          />
+        ))}
+      </div>
     </div>
   )
 }

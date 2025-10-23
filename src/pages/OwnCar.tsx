@@ -7,9 +7,9 @@ import { useCarTypes, useUsers } from '../hooks'
 import { usedeletecar } from '../hooks/usedeletecar'
 import DeleteConfirmDialog from '../components/DeleteConfirmDialog'
 import useOwnedCars from '../hooks/useOwnedCars'
-import CarList from '../components/CarList'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import CarList from '../components/CarList'
 
 export default function OwnCar() {
   const navigate = useNavigate()
@@ -64,12 +64,12 @@ export default function OwnCar() {
         </div>
       )}
       {ownedCars.length > 0 && (
-        <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 place-items-center gap-6  md:grid-cols-2 lg:grid-cols-3">
           <CarList
             cars={ownedCars}
             users={users ?? []}
             carTypes={carTypes ?? []}
-            onDelete={handleRequestDelete}
+            onAction={handleRequestDelete}
           />
         </div>
       )}
