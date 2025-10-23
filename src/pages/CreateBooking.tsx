@@ -5,8 +5,7 @@ import cars from '../util/car'
 export default function CreateBooking() {
   const handleBookCar = (id?: number) => {
     if (id === undefined) return
-    console.log('Booking car with ID:', id)
-    // Add your booking logic here
+    // Add booking logic instead of console.log
   }
 
   return (
