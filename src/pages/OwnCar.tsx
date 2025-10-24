@@ -5,11 +5,11 @@ import ErrorPage from './ErrorPage'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useCarTypes, useUsers } from '../hooks'
 import { usedeletecar } from '../hooks/usedeletecar'
-import DeleteConfirmDialog from '../components/DeleteConfirmDialog'
 import useOwnedCars from '../hooks/useOwnedCars'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import CarList from '../components/CarList'
+import ConfirmDialog from '../components/ConfirmDialog'
 
 export default function OwnCar() {
   const navigate = useNavigate()
@@ -80,10 +80,13 @@ export default function OwnCar() {
         </Button>
       </div>
 
-      <DeleteConfirmDialog
+      <ConfirmDialog
         isOpen={isDialogOpen}
         onConfirm={handleConfirmDelete}
         onCancel={handleCancelDelete}
+        type="delete"
+        title="Delete Car"
+        message="Are you sure you want to delete this car?"
       />
     </div>
   )

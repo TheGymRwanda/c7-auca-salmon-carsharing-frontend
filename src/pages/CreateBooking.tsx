@@ -1,11 +1,27 @@
+import { useState } from 'react'
+import ConfirmDialog from '../components/ConfirmDialog'
 import Header from '../components/Header'
 import OwnCard from '../components/OwnCard'
 import cars from '../util/car'
 
 export default function CreateBooking() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [selectedCarId, setSelectedCarId] = useState<number | null>(null)
+
   const handleBookCar = (id?: number) => {
     if (id === undefined) return
-    // Add booking logic instead of console.log
+    setSelectedCarId(id)
+    setIsDialogOpen(true)
+  }
+
+  const handleConfirmBooking = () => {
+    setIsDialogOpen(false)
+    setSelectedCarId(null)
+  }
+
+  const handleCancelAdd = () => {
+    setIsDialogOpen(false)
+    setSelectedCarId(null)
   }
 
   return (
@@ -22,6 +38,14 @@ export default function CreateBooking() {
           />
         ))}
       </div>
+      <ConfirmDialog
+        isOpen={isDialogOpen}
+        onConfirm={handleConfirmBooking}
+        onCancel={handleCancelAdd}
+        type="book"
+        title="Confirm Booking"
+        message={`Do you want to confirm booking this car?${selectedCarId ? ` (Car ID: ${selectedCarId})` : ''}`}
+      />
     </div>
   )
 }

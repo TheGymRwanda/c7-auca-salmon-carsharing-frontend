@@ -63,6 +63,9 @@ export interface ConfirmDeleteProps {
   isOpen: boolean
   onConfirm: () => void
   onCancel: () => void
+  type?: 'delete' | 'book'
+  title?: string
+  message?: string
 }
 
 export interface CarFormProps {
