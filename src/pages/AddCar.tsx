@@ -1,5 +1,6 @@
 import BackButton from '../components/BackButton'
 import CarForm from '../components/CarForm'
+import PageWrapper from '../components/PageWrapper'
 import { apiUrl } from '../util/apiUrl'
 import axios from 'axios'
 import { useState } from 'react'
@@ -63,13 +64,7 @@ export default function AddCar() {
   }
 
   return (
-    <div className="mx-5 mt-24 max-w-sm items-center md:flex md:max-w-none md:flex-col">
-      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-40">
-        <BackButton />
-        <h1 className="w-full text-center text-3xl font-bold tracking-widest md:text-2xl">
-          New Car
-        </h1>
-      </div>
+    <PageWrapper pageName="new car">
       <CarForm
         formData={formData}
         isSubmitting={isSubmitting}
@@ -77,6 +72,6 @@ export default function AddCar() {
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
       />
-    </div>
+    </PageWrapper>
   )
 }

@@ -11,6 +11,7 @@ function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,6 +19,7 @@ function Login() {
     setError(null)
 
     try {
+      setIsLoading(true)
       const response = await axios.post(`${apiUrl}/auth`, {
         username,
         password,
@@ -33,6 +35,8 @@ function Login() {
       } else {
         setError('Invalid credentials')
       }
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -70,8 +74,8 @@ function Login() {
           </div>
 
           {error && <p className="text-center text-red-400">{error}</p>}
-          <Button type="submit" variant="primary" className="mt-10">
-            Log In
+          <Button disabled={isLoading} type="submit" variant="primary" className="mt-10">
+            {isLoading ? 'please wait...' : 'Log In'}
           </Button>
         </form>
       </div>
