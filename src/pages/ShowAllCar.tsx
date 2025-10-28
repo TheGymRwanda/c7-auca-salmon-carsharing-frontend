@@ -1,7 +1,5 @@
 import { useUsers, useCarTypes, useCars } from '../hooks'
 import CarCard from '../components/CarCard'
-import BackButton from '../components/BackButton'
-import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorPage from './ErrorPage'
 import PageWrapper from '../components/PageWrapper'
 import LoadingHandler from '../components/LoadingHandler'

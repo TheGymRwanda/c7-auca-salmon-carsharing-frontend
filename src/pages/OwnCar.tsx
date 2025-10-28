@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import ErrorPage from './ErrorPage'
-import LoadingSpinner from '../components/LoadingSpinner'
 import { useCarTypes, useUsers } from '../hooks'
 import { usedeletecar } from '../hooks/usedeletecar'
 import DeleteConfirmDialog from '../components/DeleteConfirmDialog'
@@ -59,7 +57,7 @@ export default function OwnCar() {
         </div>
       </PageWrapper>
     )
-    
+
   return (
     <PageWrapper pageName="my cars">
       {ownedCars.length === 0 && (
