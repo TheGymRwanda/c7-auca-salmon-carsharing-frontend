@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface CarDetailsType {
   id?: number
   name: string
@@ -82,4 +84,11 @@ export interface CarFormProps {
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
   onCancel?: () => void
+}
+
+export interface MenuOptProps {
+  children: ReactNode
+  to: string
+  closeMenu?: () => void
+  isLogout?: boolean
 }

@@ -5,6 +5,7 @@ import useCarTypes from '../hooks/useCarTypes'
 import useUser from '../hooks/useUser'
 import BackButton from '../components/BackButton'
 import LoadingSpinner from '../components/LoadingSpinner'
+import PageWrapper from '../components/PageWrapper'
 
 export default function CarDetails() {
   const { id } = useParams()
@@ -16,9 +17,9 @@ export default function CarDetails() {
 
   if (loadingCars)
     return (
-      <div className="mt-36 text-center">
+      <PageWrapper pageName="details">
         <LoadingSpinner />
-      </div>
+      </PageWrapper>
     )
   if (!car)
     return (
@@ -31,14 +32,7 @@ export default function CarDetails() {
   const carImage = carType?.imageUrl ?? ''
 
   return (
-    <div className="mt-24 max-w-sm items-center md:flex md:max-w-none md:flex-col">
-      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start md:gap-10">
-        <BackButton />
-        <h1 className="w-full text-center text-3xl font-bold tracking-widest md:text-2xl">
-          DETAILS
-        </h1>
-      </div>
-
+    <PageWrapper pageName="details">
       <div className="md:grid md:grid-cols-2">
         <div className="mt-8 flex h-[300px]  justify-center">
           <img className="h-full w-[95%] object-contain" src={carImage} alt={car.name} />
@@ -75,6 +69,6 @@ export default function CarDetails() {
           </div>
         </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }

@@ -8,7 +8,7 @@ export default function HomePage() {
   const navigate = useNavigate()
   return (
     <>
-      <div className="mt-48 flex flex-col justify-center font-serif font-bold text-gray-300 md:justify-center">
+      <div className="mt-32 flex flex-col justify-center font-serif font-bold text-gray-300 md:justify-center">
         <div className="mb-10 flex flex-col items-center gap-1">
           <h1 className="text-5xl font-bold">MONI</h1>
           <p className="text-5xl italic">share</p>

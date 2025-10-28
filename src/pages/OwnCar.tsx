@@ -1,22 +1,23 @@
 import { useNavigate } from 'react-router-dom'
-import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import ErrorPage from './ErrorPage'
-import LoadingSpinner from '../components/LoadingSpinner'
 import { useCarTypes, useUsers } from '../hooks'
 import { usedeletecar } from '../hooks/usedeletecar'
 import useOwnedCars from '../hooks/useOwnedCars'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import PageWrapper from '../components/PageWrapper'
+import LoadingHandler from '../components/LoadingHandler'
 import CarList from '../components/CarList'
 import ConfirmDialog from '../components/ConfirmDialog'
 
 export default function OwnCar() {
   const navigate = useNavigate()
   const ownerId = Number(localStorage.getItem('userId'))
-  const { ownedCars, setOwnedCars, loading, error } = useOwnedCars(ownerId)
+  const { ownedCars, setOwnedCars, loading: loadingCars, error: errorCars } = useOwnedCars(ownerId)
   const [{ data: users, loading: loadingUsers, error: errorUsers }] = useUsers()
   const [{ data: carTypes, loading: loadingTypes, error: errorTypes }] = useCarTypes()
+  const loading = loadingCars || loadingTypes || loadingUsers
 
   const [selectedCarId, setSelectedCarId] = useState<number | null>(null)
   const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -45,16 +46,20 @@ export default function OwnCar() {
     setSelectedCarId(null)
   }
 
-  if (loading || loadingTypes || loadingUsers) return <LoadingSpinner />
-  if (error || errorTypes || errorUsers) return <ErrorPage />
+  if (loading) return <LoadingHandler />
+
+  if (errorCars || errorTypes || errorUsers)
+    return (
+      <PageWrapper pageName="all cars">
+        <div className="text-center text-red-500">Failed to load data. Please try again later.</div>
+        <div className="-mt-36">
+          <ErrorPage />
+        </div>
+      </PageWrapper>
+    )
 
   return (
-    <div className="mt-24 items-center text-gray-300 md:flex md:max-w-none md:flex-col">
-      <div className="left-4 top-24 m-6 flex h-9 w-80 items-center justify-start gap-24 md:w-96 md:gap-20">
-        <BackButton />
-        <h1 className="font-serif text-3xl font-bold tracking-widest md:text-2xl">MY CARS</h1>
-      </div>
-
+    <PageWrapper pageName="my cars">
       {ownedCars.length === 0 && (
         <div className="mt-20 flex flex-col items-center justify-center text-center text-gray-300">
           <p className="text-lg font-medium md:text-xl">You don’t have any cars yet.</p>
@@ -88,6 +93,6 @@ export default function OwnCar() {
         title="Delete Car"
         message="Are you sure you want to delete this car?"
       />
-    </div>
+    </PageWrapper>
   )
 }
