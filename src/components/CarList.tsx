@@ -1,7 +1,12 @@
 import { CarProps } from '../type/types'
 import OwnCard from './OwnCard'
 
-export default function CarList({ cars, users, carTypes, onDelete }: CarProps) {
+export default function CarList({
+  cars,
+  users,
+  carTypes,
+  onAction,
+}: CarProps & { onAction?: (carId: number) => void }) {
   const getCarOwnerName = (ownerId: number): string => {
     const owner = users.find(u => u.id === ownerId)
     return owner ? owner.name : `Owner ID: ${ownerId}`
@@ -17,6 +22,11 @@ export default function CarList({ cars, users, carTypes, onDelete }: CarProps) {
     return type?.imageUrl ?? ''
   }
 
+  const handleAction = (id?: number) => {
+    if (id === undefined || !onAction) return
+    onAction(id)
+  }
+
   return (
     <>
       {cars.map(car => (
@@ -26,7 +36,9 @@ export default function CarList({ cars, users, carTypes, onDelete }: CarProps) {
           owner={getCarOwnerName(car.ownerId)}
           type={getCarTypeName(car.carTypeId)}
           picture={getCarImage(car.carTypeId)}
-          onDelete={onDelete}
+          buttonVariant="outline2"
+          buttonLabel="Delete"
+          onAction={handleAction}
         />
       ))}
     </>

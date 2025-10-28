@@ -8,7 +8,10 @@ export interface CarDetailsType {
   picture: string
 }
 export type OwnCardProps = CarDetailsType & {
-  onDelete: (id: number) => void
+  // onDelete?: (id: number) => void
+  buttonLabel: string
+  onAction?: (id?: number) => void
+  buttonVariant?: 'outline' | 'outline2' | 'primary' | 'secondary'
 }
 
 export interface ThreeSetupProps {
@@ -55,13 +58,16 @@ export interface CarProps {
   cars: Car[]
   users: User[]
   carTypes: CarType[]
-  onDelete: (carId: number) => void
+  onAction?: (carId: number) => void
 }
 
 export interface ConfirmDeleteProps {
   isOpen: boolean
   onConfirm: () => void
   onCancel: () => void
+  type?: 'delete' | 'book'
+  title?: string
+  message?: string
 }
 
 export interface CarFormProps {
