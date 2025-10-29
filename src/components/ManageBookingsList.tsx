@@ -7,12 +7,12 @@ interface BookingsListProps {
   requestedName: string
 }
 
-export default function BookingsList({ img, carName, requestedName }: BookingsListProps) {
+export default function ManageBookingsList({ img, carName, requestedName }: BookingsListProps) {
   const [bookingState, setBookingState] = useState('pending')
   return (
     <div className="flex flex-col gap-5">
       <div className="flex h-[200px] justify-center">
-        <img className="h-full w-[60%] object-contain" src={img} alt="mfdoom" />
+        <img className="h-full w-3/5 object-contain" src={img} alt="mfdoom" />
       </div>
 
       <div className="-mt-10 pl-5">
@@ -46,7 +46,7 @@ export default function BookingsList({ img, carName, requestedName }: BookingsLi
           </p>
         </div>
       </div>
-      {bookingState == 'pending' ? (
+      {bookingState === 'pending' ? (
         <div>
           <button
             onClick={() => setBookingState('accepted')}
@@ -58,7 +58,7 @@ export default function BookingsList({ img, carName, requestedName }: BookingsLi
             Decline
           </button>
         </div>
-      ) : bookingState == 'accepted' ? (
+      ) : bookingState === 'accepted' ? (
         <div>
           <p className="text-green-500">Booking Accepted</p>
         </div>
