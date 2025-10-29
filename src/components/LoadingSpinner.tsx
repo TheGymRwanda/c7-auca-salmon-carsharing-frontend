@@ -13,7 +13,7 @@ export default function LoadingSpinner({
     <div
       className={`flex flex-col items-center justify-center ${
         fullscreen ? 'h-screen' : 'h-full py-10'
-      } -mt-32 text-center`}
+      } -mt-20 text-center`}
     >
       <motion.div
         className="relative flex items-center justify-center"

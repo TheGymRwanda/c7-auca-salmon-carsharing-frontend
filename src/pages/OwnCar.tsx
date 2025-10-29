@@ -79,9 +79,14 @@ export default function OwnCar() {
         </div>
       )}
 
-      <div className="md:w-76 mb-10 mt-2 p-4">
-        <Button variant="primary" onClick={() => navigate('/add-car')}>
-          Add new Car
+      {/* Floating Add Button */}
+      <div className="fixed bottom-6 z-50">
+        <Button
+          variant="primary"
+          className="rounded-full px-6 py-3 shadow-lg transition-all duration-300 hover:scale-105 md:px-8"
+          onClick={() => navigate('/add-car')}
+        >
+          + Add Car
         </Button>
       </div>
 

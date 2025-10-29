@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import Navbar from './NavBar'
 import { useState } from 'react'
 import { apiUrl } from '../util/apiUrl'
 import axios from 'axios'
@@ -42,7 +41,6 @@ function Login() {
 
   return (
     <div>
-      <Navbar profile={false} />
       <div className="flex min-h-screen flex-col items-center justify-center font-serif text-gray-300">
         <div className="mb-16 flex flex-col items-center">
           <h1 className="text-5xl font-bold">MONI</h1>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import CarForm from '../components/CarForm'
 import PageWrapper from '../components/PageWrapper'
 import { apiUrl } from '../util/apiUrl'
@@ -16,6 +17,7 @@ export default function AddCar() {
     info: '',
   }
   const [formData, setFormData] = useState(initFormState)
+  const navigate = useNavigate()
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
@@ -52,6 +54,7 @@ export default function AddCar() {
       )
 
       toast.success('Car added!')
+      navigate('/own-car')
       setFormData(initFormState)
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 400) {

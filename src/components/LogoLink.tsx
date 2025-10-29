@@ -15,7 +15,10 @@ export default function LogoLink(): ReactElement {
   }
 
   return (
-    <a onClick={handleClick} className="cursor-pointer">
+    <a
+      onClick={handleClick}
+      className="cursor-pointer rounded-full border border-slate-900 bg-slate-900  p-7 md:border-0 md:p-0"
+    >
       <img src={logo} alt="Logo" className="size-8" />
     </a>
   )
