@@ -80,7 +80,7 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
         </Button>
 
         {showStartPicker && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
             <DateTimePicker
               onDateTimeSelect={handleStartDateSelect}
               onCancel={() => setShowStartPicker(false)}
@@ -88,7 +88,7 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
           </div>
         )}
         {showEndPicker && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
             <DateTimePicker
               onDateTimeSelect={handleEndDateSelect}
               onCancel={() => setShowEndPicker(false)}
