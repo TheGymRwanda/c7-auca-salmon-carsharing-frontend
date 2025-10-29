@@ -8,7 +8,6 @@ export interface CarDetailsType {
   picture: string
 }
 export type OwnCardProps = CarDetailsType & {
-  // onDelete?: (id: number) => void
   buttonLabel: string
   onAction?: (id?: number) => void
   buttonVariant?: 'outline' | 'outline2' | 'primary' | 'secondary'
@@ -32,16 +31,6 @@ export interface Car {
   name: string
   ownerId: number
   carTypeId: number
-}
-
-// type/types.ts
-
-export interface Car {
-  id: number
-  name: string
-  ownerId: number
-  carTypeId: number
-  // add other fields as needed
 }
 
 export interface CarType {
@@ -86,9 +75,163 @@ export interface CarFormProps {
   onCancel?: () => void
 }
 
+export interface TimePickerProps {
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onTimeChange: (time: { hours: number; minutes: number; isPM: boolean }) => void
+}
+
+export interface ActionButtonsProps {
+  onCancel?: () => void
+  onConfirm: () => void
+  confirmLabel?: string
+  cancelLabel?: string
+}
+
+export interface CalendarProps {
+  currentDate: Date
+  onDateChange: (date: Date) => void
+  onPreviousMonth: () => void
+  onNextMonth: () => void
+}
+
+export interface DateTimeHeaderProps {
+  currentDate: Date
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onAMPMToggle: (isPM: boolean) => void
+}
+export interface DateTimePickerProps {
+  onDateTimeSelect?: (dateTime: Date) => void
+  onCancel?: () => void
+}
+
+export interface FormInputProps {
+  name: string
+  value: string
+  placeholder: string
+}
+export interface FormSelectProps {
+  name: string
+  value: string
+  placeholder: string
+  choices: string[]
+}
+
+export interface HeaderProps {
+  children: React.ReactNode
+}
+
+export interface LoadingSpinnerProps {
+  message?: string
+  fullscreen?: boolean
+}
+
 export interface MenuOptProps {
   children: ReactNode
   to: string
   closeMenu?: () => void
   isLogout?: boolean
+}
+
+export interface TimePickerProps {
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onTimeChange: (time: { hours: number; minutes: number; isPM: boolean }) => void
+}
+
+export interface ActionButtonsProps {
+  onCancel?: () => void
+  onConfirm: () => void
+  confirmLabel?: string
+  cancelLabel?: string
+}
+
+export interface CalendarProps {
+  currentDate: Date
+  onDateChange: (date: Date) => void
+  onPreviousMonth: () => void
+  onNextMonth: () => void
+}
+
+export interface DateTimeHeaderProps {
+  currentDate: Date
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onAMPMToggle: (isPM: boolean) => void
+}
+export interface DateTimePickerProps {
+  onDateTimeSelect?: (dateTime: Date) => void
+  onCancel?: () => void
+}
+
+export interface FormInputProps {
+  name: string
+  value: string
+  placeholder: string
+}
+export interface FormSelectProps {
+  name: string
+  value: string
+  placeholder: string
+  choices: string[]
+}
+
+export interface HeaderProps {
+  children: React.ReactNode
+}
+
+export interface LoadingSpinnerProps {
+  message?: string
+  fullscreen?: boolean
+}
+
+export interface SearchACarProps {
+  onSearch?: (startDate: Date, endDate: Date) => void
+}
+
+export interface TimePickerProps {
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onTimeChange: (time: { hours: number; minutes: number; isPM: boolean }) => void
+}
+
+export interface ActionButtonsProps {
+  onCancel?: () => void
+  onConfirm: () => void
+  confirmLabel?: string
+  cancelLabel?: string
+}
+
+export interface CalendarProps {
+  currentDate: Date
+  onDateChange: (date: Date) => void
+  onPreviousMonth: () => void
+  onNextMonth: () => void
+}
+
+export interface DateTimeHeaderProps {
+  currentDate: Date
+  selectedTime: { hours: number; minutes: number; isPM: boolean }
+  onAMPMToggle: (isPM: boolean) => void
+}
+export interface DateTimePickerProps {
+  onDateTimeSelect?: (dateTime: Date) => void
+  onCancel?: () => void
+}
+
+export interface FormInputProps {
+  name: string
+  value: string
+  placeholder: string
+}
+export interface FormSelectProps {
+  name: string
+  value: string
+  placeholder: string
+  choices: string[]
+}
+
+export interface HeaderProps {
+  children: React.ReactNode
+}
+
+export interface LoadingSpinnerProps {
+  message?: string
+  fullscreen?: boolean
 }

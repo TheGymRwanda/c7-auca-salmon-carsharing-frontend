@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
-
-interface LoadingSpinnerProps {
-  message?: string
-  fullscreen?: boolean
-}
+import { LoadingSpinnerProps } from '../type/types'
 
 export default function LoadingSpinner({
   message = 'Loading data...',
