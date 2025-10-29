@@ -10,7 +10,7 @@ export default function PageWrapper({
 }) {
   return (
     <div className="mx-5 mt-24 items-center md:flex md:max-w-none md:flex-col">
-      <div className="relative mb-6 h-9 text-center w-full min-w-56">
+      <div className="relative mb-6 h-9 w-full min-w-56 text-center">
         <div className="absolute">
           <BackButton />
         </div>
