@@ -3,6 +3,7 @@ import DateTimePicker from '../components/DateTimePicker'
 import Button from '../components/Button'
 import { useNavigate } from 'react-router-dom'
 import { SearchACarProps } from '../type/types'
+import PageWrapper from '../components/PageWrapper'
 
 export default function SearchACar({ onSearch }: SearchACarProps) {
   const navigate = useNavigate()
@@ -49,53 +50,51 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
     navigate('/variablecar')
   }
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-96 rounded-lg p-6  md:-mt-20  md:flex  md:w-1/3 md:flex-col  md:justify-center ">
-        <h1 className="  mb-10 flex  justify-center font-serif text-2xl font-bold tracking-wide text-gray-300  md:tracking-widest">
-          BOOK CAR
-        </h1>
-
-        <div className="mb-6">
-          <label className="mb-2 block text-sm ">Start date</label>
-          <button
-            onClick={() => setShowStartPicker(true)}
-            className="w-full rounded-full  bg-[#64A1C0] p-3 text-left hover:border-blue-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <div className="">{formatDateTime(startDate)}</div>
-          </button>
-        </div>
-
-        <div className="mb-6">
-          <label className="mb-2 block text-sm">End date</label>
-          <button
-            onClick={() => setShowEndPicker(true)}
-            className="w-full rounded-full  bg-[#64A1C0] p-3 text-left hover:border-blue-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <div className="">{formatDateTime(endDate)}</div>
-          </button>
-        </div>
-
-        <Button onClick={handleSearch} variant="primary" className="mt-16">
-          Search Available Cars
-        </Button>
-
-        {showStartPicker && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <DateTimePicker
-              onDateTimeSelect={handleStartDateSelect}
-              onCancel={() => setShowStartPicker(false)}
-            />
+    <PageWrapper pageName="Book a Car">
+      <div className="mt-20 flex items-center justify-center text-gray-300">
+        <div className="w-96 rounded-lg p-6  md:-mt-20  md:flex  md:w-1/3 md:flex-col  md:justify-center ">
+          <div className="mb-6">
+            <label className="mb-2 block text-sm ">Start date</label>
+            <button
+              onClick={() => setShowStartPicker(true)}
+              className="w-full rounded-full  bg-[#64A1C0] p-3 text-left hover:border-blue-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <div className="">{formatDateTime(startDate)}</div>
+            </button>
           </div>
-        )}
-        {showEndPicker && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <DateTimePicker
-              onDateTimeSelect={handleEndDateSelect}
-              onCancel={() => setShowEndPicker(false)}
-            />
+
+          <div className="mb-6">
+            <label className="mb-2 block text-sm">End date</label>
+            <button
+              onClick={() => setShowEndPicker(true)}
+              className="w-full rounded-full  bg-[#64A1C0] p-3 text-left hover:border-blue-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <div className="">{formatDateTime(endDate)}</div>
+            </button>
           </div>
-        )}
+
+          <Button onClick={handleSearch} variant="primary" className="mt-16">
+            Search Available Cars
+          </Button>
+
+          {showStartPicker && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+              <DateTimePicker
+                onDateTimeSelect={handleStartDateSelect}
+                onCancel={() => setShowStartPicker(false)}
+              />
+            </div>
+          )}
+          {showEndPicker && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+              <DateTimePicker
+                onDateTimeSelect={handleEndDateSelect}
+                onCancel={() => setShowEndPicker(false)}
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   )
 }
