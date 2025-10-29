@@ -44,7 +44,7 @@ export default function Navbar({
         >
           <div className="absolute inset-0 bg-black/50" onClick={closeMenu} />
           <div
-            className={`max-h-sm absolute left-5 top-20 w-80 max-w-[85vw] bg-background rounded-xl shadow-xl transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+            className={`max-h-sm absolute left-5 top-20 w-80 max-w-[85vw] rounded-xl bg-background shadow-xl transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
           >
             <NavMenuList closeMenu={closeMenu} />
           </div>

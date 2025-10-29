@@ -1,11 +1,6 @@
 import { useContext } from 'react'
 import { FormContext } from './CarForm'
-
-interface FormInputProps {
-  name: string
-  value: string
-  placeholder: string
-}
+import { FormInputProps } from '../type/types'
 
 export default function FormInput({ name, value, placeholder }: FormInputProps) {
   const { onInputChange } = useContext(FormContext)

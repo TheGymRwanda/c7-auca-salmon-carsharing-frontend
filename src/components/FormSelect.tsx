@@ -1,13 +1,6 @@
 import { useContext } from 'react'
 import { FormContext } from './CarForm'
-// import { CarTypeDto } from '../util/api'
-
-interface FormSelectProps {
-  name: string
-  value: string
-  placeholder: string
-  choices: string[]
-}
+import { FormSelectProps } from '../type/types'
 
 export default function FormSelect({ name, value, placeholder, choices }: FormSelectProps) {
   const { onSelectChange } = useContext(FormContext)
