@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
-
-interface LoadingSpinnerProps {
-  message?: string
-  fullscreen?: boolean
-}
+import { LoadingSpinnerProps } from '../type/types'
 
 export default function LoadingSpinner({
   message = 'Loading data...',
@@ -12,7 +8,7 @@ export default function LoadingSpinner({
   return (
     <div
       className={`flex flex-col items-center justify-center ${
-        fullscreen ? 'h-screen' : 'h-full py-10'
+        fullscreen ? 'h-screen' : 'h-full py-5'
       } -mt-20 text-center`}
     >
       <motion.div

@@ -1,8 +1,5 @@
+import { HeaderProps } from '../type/types'
 import BackButton from './BackButton'
-
-interface HeaderProps {
-  children: React.ReactNode
-}
 
 const Header = ({ children }: HeaderProps) => (
   <div className="flex items-center justify-center gap-4 px-4 md:mb-6 md:mt-0">

@@ -22,7 +22,11 @@ export default function HomePage() {
 
       <div className="flex flex-col items-center md:justify-center">
         <div className="flex w-full max-w-xs flex-col items-center gap-6">
-          <Button variant="primary" className="mt-20 md:mt-0">
+          <Button
+            onClick={() => navigate('/create-booking')}
+            variant="primary"
+            className="mt-20 md:mt-0"
+          >
             Book Car
           </Button>
           <p>or</p>

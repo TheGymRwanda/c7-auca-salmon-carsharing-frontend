@@ -10,11 +10,11 @@ import OwnCar from './pages/OwnCar'
 import BookingManagement from './pages/BookingManagement'
 import CarDetails from './pages/CarDetails'
 import UserBookings from './pages/UserBookings '
-import CreateBooking from './pages/CreateBooking'
 import AddCar from './pages/AddCar'
 import ProtectedRoute from './components/ProtectedRoute'
+import SearchACar from './pages/SearchACar'
+import CreateBooking from './pages/CreateBooking'
 
-// Axios hooks configuration
 configure({ defaultOptions: { autoCancel: false } })
 
 function AppContent(): ReactElement {
@@ -27,8 +27,9 @@ function AppContent(): ReactElement {
         <Route path="/own-car" element={<OwnCar />} />
         <Route path="/car-details/:id" element={<CarDetails />} />
         <Route path="/user-bookings" element={<UserBookings />} />
-        <Route path="/create-booking" element={<CreateBooking />} />
+        <Route path="/create-booking" element={<SearchACar />} />
         <Route path="/show-all-cars" element={<ShowAllCar />} />
+        <Route path="/variablecar" element={<CreateBooking />} />
       </Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />

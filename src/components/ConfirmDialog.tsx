@@ -11,7 +11,6 @@ export default function ConfirmDialog({
 }: ConfirmDeleteProps) {
   if (!isOpen) return null
 
-  // Default content based on type
   const defaultContent = {
     delete: {
       title: 'Delete Car',
