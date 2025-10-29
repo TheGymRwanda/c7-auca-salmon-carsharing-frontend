@@ -1,8 +1,45 @@
-export default function UserBookings() {
+import PageWrapper from '../components/PageWrapper'
+import CarGreen from '/Car-green.png'
+import CarBlack from '/Car-Black.png'
+import MyBookingsList from '../components/MyBookingsList'
+
+function BookingManagement() {
+  const bookings = [
+    {
+      img: CarGreen,
+      carName: 'Might Mouse',
+      ownerName: 'Manuela',
+    },
+    {
+      img: CarBlack,
+      carName: 'Black Saddan',
+      ownerName: 'Boyka',
+    },
+    {
+      img: CarGreen,
+      carName: 'Tini Titan',
+      ownerName: 'Manuela',
+    },
+    {
+      img: CarBlack,
+      carName: 'Baby Blue G Wagon',
+      ownerName: 'Drake',
+    },
+  ]
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-8 text-white">
-      <h1 className="mb-4 text-3xl font-bold">User Bookings (Coming Soon)</h1>
-      <p>This page will show all user bookings in the future.</p>
-    </div>
+    <PageWrapper pageName="my bookings">
+      {bookings.map((booking, i) => (
+        <div key={booking.carName} className={i < bookings.length - 1 ? 'border-b pb-5' : ''}>
+          <MyBookingsList
+            img={booking.img}
+            carName={booking.carName}
+            ownerName={booking.ownerName}
+            index={i}
+          />
+        </div>
+      ))}
+    </PageWrapper>
   )
 }
+
+export default BookingManagement

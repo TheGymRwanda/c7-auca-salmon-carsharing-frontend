@@ -15,7 +15,7 @@ export default function PageWrapper({
           <BackButton />
         </div>
         <h1
-          className={`${pageName.length < 9 ? 'pl-6' : 'pl-12'} font-serif text-3xl font-bold tracking-widest md:text-2xl`}
+          className={`${pageName.length < 9 ? 'pl-6' : 'pl-12 text-xl'} font-serif text-3xl font-bold tracking-widest md:text-2xl`}
         >
           {pageName.toUpperCase()}
         </h1>

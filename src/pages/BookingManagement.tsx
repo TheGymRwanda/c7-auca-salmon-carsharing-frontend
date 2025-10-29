@@ -1,11 +1,33 @@
+import PageWrapper from '../components/PageWrapper'
+import CarGreen from '/Car-green.png'
+import CarBlack from '/Car-Black.png'
+import BookingsList from '../components/ManageBookingsList'
+
 function BookingManagement() {
+  const bookings = [
+    {
+      img: CarGreen,
+      carName: 'Tini Titan',
+      requestedName: 'Manuela',
+    },
+    {
+      img: CarBlack,
+      carName: 'Tini Titan',
+      requestedName: 'Manuela',
+    },
+  ]
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-8 text-white">
-      <h1 className="mb-4 text-3xl font-bold">Booking Management (Coming Soon)</h1>
-      <p className="text-center text-gray-300">
-        This feature will allow users to view and manage bookings in the future.
-      </p>
-    </div>
+    <PageWrapper pageName="manage bookings">
+      {bookings.map((booking, i) => (
+        <div key={booking.carName} className={i < bookings.length - 1 ? 'border-b pb-5' : ''}>
+          <BookingsList
+            img={booking.img}
+            carName={booking.carName}
+            requestedName={booking.requestedName}
+          />
+        </div>
+      ))}
+    </PageWrapper>
   )
 }
 
