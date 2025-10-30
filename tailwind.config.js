@@ -12,6 +12,7 @@ module.exports = {
         accent: {
           DEFAULT: '#F97316',
           dark: '#C2410C',
+          light: '#FFC28A',
         },
         background: {
           DEFAULT: '#265E78',
