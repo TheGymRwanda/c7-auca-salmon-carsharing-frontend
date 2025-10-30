@@ -29,7 +29,7 @@ function AppContent(): ReactElement {
         <Route path="/user-bookings" element={<UserBookings />} />
         <Route path="/create-booking" element={<SearchACar />} />
         <Route path="/show-all-cars" element={<ShowAllCar />} />
-        <Route path="/variablecar" element={<CreateBooking />} />
+        <Route path="/available-car" element={<CreateBooking />} />
       </Route>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
