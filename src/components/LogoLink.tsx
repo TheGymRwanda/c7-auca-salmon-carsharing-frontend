@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.svg'
+import { AppRoutes } from '../routes/AppRoutes'
 
 export default function LogoLink(): ReactElement {
   const navigate = useNavigate()
@@ -8,9 +9,9 @@ export default function LogoLink(): ReactElement {
   const handleClick = () => {
     const token = localStorage.getItem('token')
     if (token) {
-      navigate('/home')
+      navigate(AppRoutes.home)
     } else {
-      navigate('/')
+      navigate(AppRoutes.landing)
     }
   }
 

@@ -235,3 +235,12 @@ export interface LoadingSpinnerProps {
   message?: string
   fullscreen?: boolean
 }
+
+export interface CarFormData {
+  carTypeId: string
+  name: string
+  fuelType: string
+  horsepower: string
+  licensePlate: string
+  info: string
+}

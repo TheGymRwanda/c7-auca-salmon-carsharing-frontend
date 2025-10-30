@@ -39,12 +39,10 @@ export default function OwnCard({
             <div className="flex h-14 w-28 items-center gap-2 space-y-5 text-xl tracking-normal">
               <span className="align-middle font-serif font-medium">{name}</span>
             </div>
-
             <div className="flex h-6 w-20 items-center gap-2 font-bold">
               <ProfileIcon className="size-5" />
               <span>{owner}</span>
             </div>
-
             <div className="flex h-6 w-28 items-center gap-2">
               <CarIcon className="size-6" />
               <span>{type}</span>

@@ -27,8 +27,7 @@ export default function ConfirmDialog({
   const content = defaultContent[type]
 
   return (
-    // eslint-disable-next-line tailwindcss/migration-from-tailwind-2
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black opacity-50">
       <div className="w-80 rounded-lg bg-background p-6 text-white shadow-lg">
         <h2 className="mb-4 text-lg font-semibold">{title || content.title}</h2>
         <p className="mb-6">{message || content.message}</p>

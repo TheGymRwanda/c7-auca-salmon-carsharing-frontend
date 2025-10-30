@@ -13,13 +13,11 @@ export default function HomePage() {
           <h1 className="text-5xl font-bold">MONI</h1>
           <p className="text-5xl italic">share</p>
         </div>
-
         <div className="text-center text-xl  font-medium">
           <p>Hello {name?.name}!</p>
           <p>What are you up to today?</p>
         </div>
       </div>
-
       <div className="flex flex-col items-center md:justify-center">
         <div className="flex w-full max-w-xs flex-col items-center gap-6">
           <Button

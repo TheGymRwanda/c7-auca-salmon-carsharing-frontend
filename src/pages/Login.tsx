@@ -70,7 +70,6 @@ function Login() {
               placeholder="Password"
             />
           </div>
-
           {error && <p className="text-center text-red-400">{error}</p>}
           <Button disabled={isLoading} type="submit" variant="primary" className="mt-10">
             {isLoading ? 'please wait...' : 'Log In'}

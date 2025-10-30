@@ -1,21 +1,8 @@
 import PageWrapper from '../components/PageWrapper'
-import CarGreen from '/Car-green.png'
-import CarBlack from '/Car-Black.png'
 import BookingsList from '../components/ManageBookingsList'
+import { bookings } from '../util/bookings'
 
 function BookingManagement() {
-  const bookings = [
-    {
-      img: CarGreen,
-      carName: 'Tini Titan',
-      requestedName: 'Manuela',
-    },
-    {
-      img: CarBlack,
-      carName: 'Tini Titan',
-      requestedName: 'Manuela',
-    },
-  ]
   return (
     <PageWrapper pageName="manage bookings">
       {bookings.map((booking, i) => (

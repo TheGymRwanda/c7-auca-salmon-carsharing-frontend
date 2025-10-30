@@ -58,7 +58,6 @@ export default function Calendar({
           ›
         </button>
       </div>
-
       <div className="mb-2 grid grid-cols-7 gap-1">
         {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, index) => (
           <div key={index} className="text-center text-xs font-medium text-gray-500">

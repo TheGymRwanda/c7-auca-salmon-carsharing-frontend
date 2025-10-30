@@ -11,7 +11,6 @@ export default function TimePicker({ selectedTime, onTimeChange }: TimePickerPro
   return (
     <div className="space-y-6">
       <div className="flex gap-6">
-        {/* Hours Section */}
         <div className="flex-1">
           <div className="mb-3 text-sm font-medium text-gray-700">Hours</div>
           <div className="grid grid-cols-3 gap-2">
@@ -30,8 +29,6 @@ export default function TimePicker({ selectedTime, onTimeChange }: TimePickerPro
             ))}
           </div>
         </div>
-
-        {/* Minutes Section */}
         <div className="flex-1 text-black">
           <div className="mb-3 text-sm font-medium text-black">Minutes</div>
           <div className="relative inline-block">
@@ -41,7 +38,6 @@ export default function TimePicker({ selectedTime, onTimeChange }: TimePickerPro
             >
               {selectedTime.minutes.toString().padStart(2, '0')}
             </button>
-
             {isMinutesOpen && (
               <div className="absolute left-0 top-full z-10 mt-1 max-h-36 w-12 overflow-y-auto rounded border bg-white shadow-lg">
                 {Array.from({ length: 60 }, (_, i) => i).map(minute => (
@@ -60,7 +56,7 @@ export default function TimePicker({ selectedTime, onTimeChange }: TimePickerPro
             )}
           </div>
         </div>
-      </div>{' '}
+      </div>
     </div>
   )
 }

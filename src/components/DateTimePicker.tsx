@@ -52,9 +52,7 @@ export default function DateTimePicker({ onDateTimeSelect, onCancel }: DateTimeP
         selectedTime={selectedTime}
         onAMPMToggle={handleAMPMToggle}
       />
-
       <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
-
       <div className="mb-6 min-h-[280px]">
         {activeTab === 'date' ? (
           <Calendar
@@ -67,7 +65,6 @@ export default function DateTimePicker({ onDateTimeSelect, onCancel }: DateTimeP
           <TimePicker selectedTime={selectedTime} onTimeChange={handleTimeChange} />
         )}
       </div>
-
       <ActionButtons onCancel={onCancel} onConfirm={handleConfirm} />
     </div>
   )

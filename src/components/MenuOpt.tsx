@@ -1,14 +1,15 @@
+import { useLogout } from '../hooks/useLogout'
 import { MenuOptProps } from '../type/types'
 import { NavLink } from 'react-router-dom'
 
 export default function MenuOpt({ children, to, closeMenu, isLogout }: MenuOptProps) {
+  const { logout } = useLogout()
   if (isLogout) {
     return (
       <NavLink
         to={to}
         onClick={() => {
-          localStorage.removeItem('token')
-          localStorage.removeItem('userId')
+          logout()
           closeMenu && closeMenu()
         }}
         className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-slate-600"
@@ -20,9 +21,7 @@ export default function MenuOpt({ children, to, closeMenu, isLogout }: MenuOptPr
   return (
     <NavLink
       to={to}
-      onClick={() => {
-        closeMenu && closeMenu()
-      }}
+      onClick={closeMenu}
       className={({ isActive }) =>
         `flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors ${isActive ? 'bg-slate-800' : 'hover:bg-slate-600'}`
       }

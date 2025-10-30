@@ -37,10 +37,8 @@ export default function CarDetails() {
         <div className="mt-8 flex h-[300px]  justify-center">
           <img className="h-full w-[95%] object-contain" src={carImage} alt={car.name} />
         </div>
-
         <div className="m-10">
           <h1 className="text-xl font-semibold">{car.name}</h1>
-
           <div className="mt-4 space-y-2">
             <p className="flex items-center">
               <ProfileIcon />

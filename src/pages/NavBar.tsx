@@ -7,6 +7,7 @@ import DesktopNav from '../components/DesktopNav'
 import MobileHamburger from '../components/MobileHamburger'
 import ProfileDropdown from '../components/ProfileDropdown'
 import NavMenuList from '../components/NavMenuList'
+import { AppRoutes } from '../routes/AppRoutes'
 
 export default function Navbar({
   className,
@@ -17,10 +18,9 @@ export default function Navbar({
 }): ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
-
-  const hideMenuAndProfile = location.pathname === '/' || location.pathname === '/Login'
+  const hideMenuAndProfile =
+    location.pathname === AppRoutes.landing || location.pathname === AppRoutes.login
   const token = localStorage.getItem('token')
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
 
@@ -36,14 +36,12 @@ export default function Navbar({
         >
           <LogoLink />
         </div>
-
         {!hideMenuAndProfile && (
           <>
             <MobileHamburger isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
             <DesktopNav />
           </>
         )}
-
         <div className="flex flex-1 justify-center md:hidden">
           <LogoLink />
         </div>
@@ -53,7 +51,6 @@ export default function Navbar({
           </div>
         )}
       </nav>
-
       {!hideMenuAndProfile && profile && (
         <div
           className={`fixed inset-0 z-50 transition-opacity duration-300 md:hidden ${

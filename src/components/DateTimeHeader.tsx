@@ -9,7 +9,6 @@ export default function DateTimeHeader({
   return (
     <>
       <h2 className="font-normal text-gray-500">SELECT DATE & TIME</h2>
-
       <div className="flex-between flex gap-10">
         <div>
           <div className="mb-1 text-sm text-gray-600">{currentDate.getFullYear()}</div>
@@ -17,7 +16,6 @@ export default function DateTimeHeader({
             {months[currentDate.getMonth()].slice(0, 3)} {currentDate.getDate()}
           </div>
         </div>
-
         <div className="mt-10 flex">
           <div className="mb-2 text-5xl font-normal text-gray-600">
             {selectedTime.hours.toString().padStart(2, '0')}:

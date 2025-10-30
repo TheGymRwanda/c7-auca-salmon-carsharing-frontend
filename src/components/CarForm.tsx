@@ -1,13 +1,13 @@
+import { ChangeEvent, createContext } from 'react'
 import { useCarTypes } from '../hooks'
 import { CarFormProps } from '../type/types'
 import { ChevronDownIcon } from '../assets'
 import FormInput from './FormInput'
 import FormSelect from './FormSelect'
-import React from 'react'
 
-export const FormContext = React.createContext<{
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onSelectChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+export const FormContext = createContext<{
+  onInputChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onSelectChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }>({ onInputChange: () => {}, onSelectChange: () => {} })
 
 export default function CarForm({
@@ -20,8 +20,10 @@ export default function CarForm({
 }: CarFormProps) {
   const fuelTypes = ['Diesel', 'Petrol', 'Electric']
   const [{ data: carTypes }] = useCarTypes()
+
   return (
     <FormContext.Provider value={{ onInputChange, onSelectChange }}>
+      {/* [&_label]:mb-1 [&_label]:ml-4 applies margin and padding to  all the labels */}
       <form onSubmit={onSubmit} className="[&_label]:mb-1 [&_label]:ml-4">
         <div className="flex flex-col">
           <label>Name</label>

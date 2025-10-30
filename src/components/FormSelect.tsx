@@ -4,6 +4,7 @@ import { FormSelectProps } from '../type/types'
 
 export default function FormSelect({ name, value, placeholder, choices }: FormSelectProps) {
   const { onSelectChange } = useContext(FormContext)
+
   return (
     <select required name={name} value={value} onChange={onSelectChange} className="form-select">
       <option>{placeholder}</option>

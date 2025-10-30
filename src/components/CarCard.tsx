@@ -9,6 +9,7 @@ export default function CarCard({ id, name, owner, type, picture }: CarDetailsTy
   const goToCarDetails = () => {
     navigate(`/car-details/${id}`)
   }
+
   return (
     <>
       <div className="m-3 flex h-64 w-full max-w-md items-center justify-center rounded-2xl bg-background-lighter px-4 py-6 shadow-md transition-all hover:shadow-xl md:h-80 md:max-w-3xl md:flex-row md:justify-between md:gap-8 lg:max-w-4xl">
@@ -19,12 +20,10 @@ export default function CarCard({ id, name, owner, type, picture }: CarDetailsTy
               <div className="flex h-14 w-28 items-center gap-2 space-y-5 text-xl tracking-normal">
                 <span className="align-middle  font-serif font-medium">{name}</span>
               </div>
-
               <div className="flex h-6 w-20 items-center gap-2">
                 <ProfileIcon className="size-5" />
                 <span>{owner}</span>
               </div>
-
               <div className="flex h-6 w-28 items-center gap-2 ">
                 <CarIcon className="size-6" />
                 <span>{type}</span>

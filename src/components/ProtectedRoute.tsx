@@ -1,6 +1,7 @@
 import { ReactElement, useEffect } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { AppRoutes } from '../routes/AppRoutes'
 
 export default function ProtectedRoute(): ReactElement {
   const token = localStorage.getItem('token')
@@ -13,7 +14,7 @@ export default function ProtectedRoute(): ReactElement {
   }, [token])
 
   if (!token) {
-    return <Navigate to="/login" state={{ from: location }} replace />
+    return <Navigate to={AppRoutes.login} state={{ from: location }} replace />
   }
   return <Outlet />
 }

@@ -49,6 +49,7 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
     onSearch?.(startDate, endDate)
     navigate('/variablecar')
   }
+
   return (
     <PageWrapper pageName="Book a Car">
       <div className="mt-20 flex items-center justify-center text-gray-300">
@@ -62,7 +63,6 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
               <div className="">{formatDateTime(startDate)}</div>
             </button>
           </div>
-
           <div className="mb-6">
             <label className="mb-2 block text-sm">End date</label>
             <button
@@ -72,11 +72,9 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
               <div className="">{formatDateTime(endDate)}</div>
             </button>
           </div>
-
           <Button onClick={handleSearch} variant="primary" className="mt-16">
             Search Available Cars
           </Button>
-
           {showStartPicker && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
               <DateTimePicker

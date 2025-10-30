@@ -4,6 +4,7 @@ import { FormInputProps } from '../type/types'
 
 export default function FormInput({ name, value, placeholder }: FormInputProps) {
   const { onInputChange } = useContext(FormContext)
+
   return (
     <input
       required
