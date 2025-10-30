@@ -1,6 +1,6 @@
 import useInteractiveImage from '../hooks/useInteractiveImage'
 function InteractiveCarImage({ src, alt }: { src: string; alt: string }) {
-  const { canvasRef, setIsHovered, isMdScreen, error } = useInteractiveImage(src)
+  const { canvasRef, isMdScreen, error } = useInteractiveImage(src)
   if (error) {
     return (
       <div className="flex h-[104px] w-[178px] justify-center">
@@ -14,11 +14,7 @@ function InteractiveCarImage({ src, alt }: { src: string; alt: string }) {
   }
 
   return (
-    <div
-      className="relative flex justify-center md:h-[160px] md:w-[260px] md:cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative flex justify-center md:h-[160px] md:w-[260px] md:cursor-pointer">
       {isMdScreen ? (
         <canvas
           ref={canvasRef}

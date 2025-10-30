@@ -1,5 +1,6 @@
 import { apiUrl } from '../util/apiUrl'
 import { getAuthToken } from '../util/auth'
+import { toast } from 'react-toastify'
 
 export const usedeletecar = async (carId: number): Promise<void> => {
   try {
@@ -16,7 +17,7 @@ export const usedeletecar = async (carId: number): Promise<void> => {
       throw new Error(error || 'Failed to delete car')
     }
   } catch (error) {
-    console.error('Delete car error:', error)
+    toast.error('Failed to delete car')
     throw error
   }
 }

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import BackIcon from '../assets/BackIcon'
+import { AppRoutes } from '../routes/AppRoutes'
 
 const BackButton: React.FC = () => {
   const navigate = useNavigate()
@@ -8,7 +9,7 @@ const BackButton: React.FC = () => {
     if (window.history.length > 1) {
       navigate(-1)
     } else {
-      navigate('/home')
+      navigate(AppRoutes.home)
     }
   }
 

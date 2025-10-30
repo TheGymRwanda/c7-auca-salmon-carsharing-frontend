@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import Navbar from './NavBar'
 import { useState } from 'react'
 import { apiUrl } from '../util/apiUrl'
 import axios from 'axios'
@@ -11,6 +10,7 @@ function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -18,6 +18,7 @@ function Login() {
     setError(null)
 
     try {
+      setIsLoading(true)
       const response = await axios.post(`${apiUrl}/auth`, {
         username,
         password,
@@ -33,12 +34,13 @@ function Login() {
       } else {
         setError('Invalid credentials')
       }
+    } finally {
+      setIsLoading(false)
     }
   }
 
   return (
     <div>
-      <Navbar profileMenuView={false} />
       <div className="flex min-h-screen flex-col items-center justify-center font-serif text-gray-300">
         <div className="mb-16 flex flex-col items-center">
           <h1 className="text-5xl font-bold">MONI</h1>
@@ -68,10 +70,9 @@ function Login() {
               placeholder="Password"
             />
           </div>
-
           {error && <p className="text-center text-red-400">{error}</p>}
-          <Button type="submit" variant="primary" className="mt-10">
-            Log In
+          <Button disabled={isLoading} type="submit" variant="primary" className="mt-10">
+            {isLoading ? 'please wait...' : 'Log In'}
           </Button>
         </form>
       </div>
