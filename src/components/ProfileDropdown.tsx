@@ -14,7 +14,7 @@ export default function ProfileDropdown({ closeMenu }: { closeMenu: () => void }
           navigate(AppRoutes.notFound)
           closeMenu()
         }}
-        className="flex items-center w-full px-4 py-2 text-left text-sm"
+        className="flex w-full items-center px-4 py-2 text-left text-sm"
       >
         <ProfileIcon className="mr-2 size-4" />
         Profile
@@ -24,7 +24,7 @@ export default function ProfileDropdown({ closeMenu }: { closeMenu: () => void }
           logout()
           closeMenu()
         }}
-        className="flex items-center w-full px-4 py-2 text-left text-sm"
+        className="flex w-full items-center px-4 py-2 text-left text-sm"
       >
         <LogoutIcon className="mr-2 size-4" />
         Logout

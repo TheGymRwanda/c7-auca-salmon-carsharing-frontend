@@ -52,7 +52,7 @@ export default function Navbar(): ReactElement {
       </nav>
       {!hideMenuAndProfile && (
         <div
-          className={`fixed flex inset-0 z-50 transition-opacity duration-300 md:hidden ${
+          className={`fixed inset-0 z-50 flex transition-opacity duration-300 md:hidden ${
             isNavMenuOpen || isProfileMenuOpen
               ? 'pointer-events-auto opacity-100'
               : 'pointer-events-none opacity-0'
