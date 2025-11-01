@@ -12,7 +12,7 @@ export default function MenuOpt({ children, to, closeMenu, isLogout }: MenuOptPr
           logout()
           closeMenu && closeMenu()
         }}
-        className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors hover:bg-slate-600"
+        className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors"
       >
         {children}
       </NavLink>
@@ -23,7 +23,7 @@ export default function MenuOpt({ children, to, closeMenu, isLogout }: MenuOptPr
       to={to}
       onClick={closeMenu}
       className={({ isActive }) =>
-        `flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-white transition-colors ${isActive ? 'bg-slate-800' : 'hover:bg-slate-600'}`
+        `flex w-full items-center gap-3 rounded-lg px-4 py-2 text-left text-white transition-colors ${isActive ? 'bg-background-light' : ''}`
       }
     >
       {children}
