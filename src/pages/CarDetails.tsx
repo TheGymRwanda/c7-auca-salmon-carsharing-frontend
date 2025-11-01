@@ -6,6 +6,7 @@ import useUser from '../hooks/useUser'
 import BackButton from '../components/BackButton'
 import LoadingSpinner from '../components/LoadingSpinner'
 import PageWrapper from '../components/PageWrapper'
+import InteractiveCarImage from '../components/InteractiveCarImage'
 
 export default function CarDetails() {
   const { id } = useParams()
@@ -34,10 +35,10 @@ export default function CarDetails() {
   return (
     <PageWrapper pageName="details">
       <div className="md:grid md:grid-cols-2">
-        <div className="mt-8 flex h-[300px]  justify-center">
-          <img className="h-full w-[95%] object-contain" src={carImage} alt={car.name} />
+        <div className="flex h-72  justify-center">
+          <InteractiveCarImage src={carImage} alt={car.name} />
         </div>
-        <div className="m-10">
+        <div className="mx-10">
           <h1 className="text-xl font-semibold">{car.name}</h1>
           <div className="mt-4 space-y-2">
             <p className="flex items-center">

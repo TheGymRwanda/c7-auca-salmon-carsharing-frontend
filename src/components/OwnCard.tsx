@@ -29,7 +29,10 @@ export default function OwnCard({
   }
 
   return (
-    <div className="m-3 flex h-72 max-w-md flex-col items-center justify-center rounded-lg bg-background-lighter p-5 text-gray-300 shadow md:w-96">
+    <div
+      className="flex h-72 max-w-md flex-col items-center justify-center rounded-lg 
+    bg-background-lighter p-5 text-gray-100 shadow md:w-96"
+    >
       <div className="flex h-48 items-center justify-center gap-5 md:w-80">
         <div>
           <InteractiveCarImage src={picture} alt={name} />
@@ -37,7 +40,7 @@ export default function OwnCard({
         <div className="flex h-48 w-28 flex-col gap-8">
           <div className="flex h-32 w-28 flex-col gap-3">
             <div className="flex h-14 w-28 items-center gap-2 space-y-5 text-xl tracking-normal">
-              <span className="align-middle font-serif font-medium">{name}</span>
+              <span className="align-middle font-serif">{name}</span>
             </div>
             <div className="flex h-6 w-20 items-center gap-2 font-bold">
               <ProfileIcon className="size-5" />
@@ -47,15 +50,11 @@ export default function OwnCard({
               <CarIcon className="size-6" />
               <span>{type}</span>
             </div>
-          </div>
-          <div className="-ml-16 flex h-5 w-28 cursor-pointer justify-end text-yellow-100">
-            <button
-              className="text-left text-lg hover:underline"
-              onClick={goToCarDetails}
-              type="button"
-            >
-              Show details
-            </button>
+            <div className="mt-8 h-5 w-24 cursor-pointer font-bold text-yellow-100">
+              <button className="text-left hover:underline" onClick={goToCarDetails} type="button">
+                Show details
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
+import { AppRoutes } from '../routes/AppRoutes'
+
 export default function LandingPage() {
   const navigate = useNavigate()
 
   return (
     <>
-      <div className="mt-56 flex flex-col justify-center font-serif font-bold text-gray-300 md:justify-center">
+      <div className="mt-40 flex flex-col justify-center font-serif font-bold text-gray-100 md:justify-center">
         <div className="flex flex-col items-center gap-1">
           <h1 className="text-5xl font-bold">MONI</h1>
           <h1 className="text-5xl italic">share</h1>
@@ -20,7 +22,7 @@ export default function LandingPage() {
             className="mt-20 md:mt-0"
             variant="primary"
             onClick={() => {
-              navigate('/Login')
+              navigate(AppRoutes.login)
             }}
           >
             Login

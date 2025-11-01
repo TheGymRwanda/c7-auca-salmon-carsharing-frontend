@@ -77,7 +77,7 @@ export default function CarForm({
           <label>Additional Information</label>
           <FormInput name="info" value={formData.info} placeholder="e.g. No Smoking" />
         </div>
-        <div className="mt-16 flex gap-4">
+        <div className="mt-3 flex gap-4">
           <button onClick={onCancel} className="btn-form border-2 border-white">
             Cancel
           </button>

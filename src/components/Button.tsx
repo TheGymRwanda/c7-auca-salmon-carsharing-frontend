@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={classes} {...props}>
-      {children}
+      <div className="-mt-1 flex justify-center">{children}</div>
     </button>
   )
 }

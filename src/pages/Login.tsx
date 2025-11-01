@@ -41,7 +41,7 @@ function Login() {
 
   return (
     <div>
-      <div className="flex min-h-screen flex-col items-center justify-center font-serif text-gray-300">
+      <div className="-mt-5 flex min-h-screen flex-col items-center justify-center font-serif text-gray-100">
         <div className="mb-16 flex flex-col items-center">
           <h1 className="text-5xl font-bold">MONI</h1>
           <p className="text-5xl italic">share</p>
@@ -55,7 +55,7 @@ function Login() {
             <input
               value={username}
               onChange={e => setUsername(e.target.value)}
-              className="w-full rounded-full bg-background-light px-12 py-3 text-center placeholder:text-gray-100 focus:outline-none"
+              className="w-full rounded-full bg-background-light px-14 py-3 placeholder:text-gray-100 focus:outline-none"
               type="text"
               placeholder="Username / e-mail"
             />
@@ -65,7 +65,7 @@ function Login() {
             <input
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="w-full rounded-full bg-background-light px-12 py-3 text-center placeholder:text-gray-100 focus:outline-none"
+              className="w-full rounded-full bg-background-light px-14 py-3 placeholder:text-gray-100 focus:outline-none"
               type="password"
               placeholder="Password"
             />
