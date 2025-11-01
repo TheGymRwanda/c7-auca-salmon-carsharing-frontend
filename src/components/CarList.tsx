@@ -29,17 +29,20 @@ export default function CarList({
 
   return (
     <>
-      {cars.map(car => (
-        <OwnCard
-          key={car.id}
-          {...car}
-          owner={getCarOwnerName(car.ownerId)}
-          type={getCarTypeName(car.carTypeId)}
-          picture={getCarImage(car.carTypeId)}
-          buttonVariant="outline2"
-          buttonLabel="Delete"
-          onAction={handleAction}
-        />
+      {cars.map((car, index) => (
+        <>
+          {index === 0 && <div className="mt-1"></div>}
+          <OwnCard
+            key={car.id}
+            {...car}
+            owner={getCarOwnerName(car.ownerId)}
+            type={getCarTypeName(car.carTypeId)}
+            picture={getCarImage(car.carTypeId)}
+            buttonVariant="outline2"
+            buttonLabel="Delete"
+            onAction={handleAction}
+          />
+        </>
       ))}
     </>
   )

@@ -61,15 +61,15 @@ export default function OwnCar() {
   return (
     <PageWrapper pageName="my cars">
       {ownedCars.length === 0 && (
-        <div className="mt-20 flex flex-col items-center justify-center text-center text-gray-300">
-          <p className="text-lg font-medium md:text-xl">You don’t have any cars yet.</p>
+        <div className="mt-20 flex flex-col items-center justify-center text-center text-gray-100">
+          <p className="text-lg font-medium md:text-xl">You don&apos;t have any cars yet.</p>
           <p className="mt-2 text-sm text-gray-400">
             Start by adding your first car to manage it here.
           </p>
         </div>
       )}
       {ownedCars.length > 0 && (
-        <div className="grid grid-cols-1 place-items-center gap-6  md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 place-items-center gap-4  md:grid-cols-2 lg:grid-cols-3">
           <CarList
             cars={ownedCars}
             users={users ?? []}

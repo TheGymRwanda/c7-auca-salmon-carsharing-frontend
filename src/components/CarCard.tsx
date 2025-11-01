@@ -12,7 +12,10 @@ export default function CarCard({ id, name, owner, type, picture }: CarDetailsTy
 
   return (
     <>
-      <div className="m-3 flex h-64 w-full max-w-md items-center justify-center rounded-2xl bg-background-lighter px-4 py-6 shadow-md transition-all hover:shadow-xl md:h-80 md:max-w-3xl md:flex-row md:justify-between md:gap-8 lg:max-w-4xl">
+      <div
+        className="flex h-64 w-full max-w-md items-center justify-center rounded-2xl bg-background-lighter px-4 py-6 
+      shadow-md transition-all hover:shadow-xl md:h-80 md:max-w-3xl md:flex-row md:justify-between md:gap-8 lg:max-w-4xl"
+      >
         <div className="flex h-48 items-center justify-center gap-5 md:h-60 md:w-auto md:gap-10">
           <InteractiveCarImage src={picture} alt={name} />
           <div className="items-left flex h-48 w-28 flex-col gap-8 p-4">

@@ -51,7 +51,7 @@ export default function SearchACar({ onSearch }: SearchACarProps) {
   }
 
   return (
-    <PageWrapper pageName="Book a Car">
+    <PageWrapper pageName="Book Car">
       <div className="mt-20 flex items-center justify-center text-gray-300">
         <div className="w-96 rounded-lg p-6  md:-mt-20  md:flex  md:w-1/3 md:flex-col  md:justify-center ">
           <div className="mb-6">

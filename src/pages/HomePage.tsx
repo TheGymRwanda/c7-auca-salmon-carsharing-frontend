@@ -8,8 +8,8 @@ export default function HomePage() {
   const navigate = useNavigate()
   return (
     <>
-      <div className="mt-32 flex flex-col justify-center font-serif font-bold text-gray-300 md:justify-center">
-        <div className="mb-10 flex flex-col items-center gap-1">
+      <div className="mt-36 flex flex-col justify-center font-serif font-bold text-gray-100 md:justify-center">
+        <div className="mb-5 flex flex-col items-center">
           <h1 className="text-5xl font-bold">MONI</h1>
           <p className="text-5xl italic">share</p>
         </div>
@@ -18,7 +18,7 @@ export default function HomePage() {
           <p>What are you up to today?</p>
         </div>
       </div>
-      <div className="flex flex-col items-center md:justify-center">
+      <div className="-mt-5 flex flex-col items-center md:justify-center">
         <div className="flex w-full max-w-xs flex-col items-center gap-6">
           <Button
             onClick={() => navigate('/create-booking')}

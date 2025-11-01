@@ -38,7 +38,7 @@ export default function ShowAllCar() {
 
   return (
     <PageWrapper pageName="all cars">
-      <div className="grid grid-cols-1 place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 place-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
         {cars?.map(car => {
           const name = /^[0-9]+$/.test(car.name) ? car.name.slice(0, 10) + '...' : car.name
           return (
